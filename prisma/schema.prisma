@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  role         String   @default("ADMIN")
+  createdAt    DateTime @default(now())
+}
+
+model Quote {
+  id           String    @id @default(cuid())
+  nombre       String
+  email        String?
+  telefono     String
+  tipo         String?
+  fecha        String?
+  personas     Int?
+  comentarios  String?
+  status       String    @default("NEW")
+  createdAt    DateTime  @default(now())
+  emailSentAt  DateTime?
+  emailError   String?
+}
+
+model MailSettings {
+  id         String  @id @default("default")
+  fromEmail  String
+  fromName   String
+  recipients String
+  enabled    Boolean @default(true)
+}
+
+model Promotion {
+  id          String    @id @default(cuid())
+  title       String?
+  imageUrl    String
+  status      String    @default("DRAFT")
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  publishedAt DateTime?
+  archivedAt  DateTime?
+}

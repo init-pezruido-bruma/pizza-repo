@@ -320,18 +320,14 @@ export default function JuegosPage() {
             <div className="mt-5 space-y-1 text-sm leading-relaxed text-white sm:text-base lg:text-lg">
               <p>Tiny Town cuenta con:</p>
               <ul className="space-y-0.5">
-                {[
-                  "Laberinto (Regular- Platino)",
-                  "Carrusel",
-                  "MiniTagadá (Regular-Platino)",
-                  "Y más!",
-                ].map((item) => (
+                {["Laberinto", "Carrusel", "MiniTagadá"].map((item) => (
                   <li key={item} className="flex gap-2">
                     <span aria-hidden>•</span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
+              <p>y más</p>
             </div>
           </Reveal>
 

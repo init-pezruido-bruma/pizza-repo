@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
-import { WhatsAppFloat } from "@/components/layout/whatsapp-float";
 import { restaurantJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
-/* Alkaline script — headlines in sentence case (matches design PDF) */
 const display = localFont({
   src: [
     { path: "../fonts/alkaline/Alkaline-Regular.otf", weight: "400", style: "normal" },
@@ -82,12 +78,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <SiteHeader />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
-        <WhatsAppFloat />
+        {children}
       </body>
     </html>
   );

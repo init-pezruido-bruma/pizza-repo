@@ -1,0 +1,16 @@
+---
+description: Keep backend/admin work isolated from the public marketing site
+globs: src/app/(backend)/**,src/lib/admin/**,src/lib/mail/**,prisma/**,src/auth.ts,src/middleware.ts
+alwaysApply: false
+---
+
+# Backend isolation
+
+When editing backend, admin, auth, Prisma, or mail code:
+
+- Do **not** change marketing pages under `src/app/(site)/**` unless the task explicitly requires wiring the public quote form.
+- Do **not** add SiteHeader, SiteFooter, or WhatsAppFloat to `/backend` routes.
+- Do **not** put auth checks on public marketing routes.
+- Keep `RESEND_API_KEY` and secrets in env only — never store API keys in the database.
+- Quote submissions must be persisted even when email sending fails or is disabled.
+- Prefer changes inside `src/app/(backend)/**`, `src/lib/admin/**`, `src/lib/mail/**`, `src/app/api/**`, and `prisma/**`.

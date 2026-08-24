@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { siteConfig } from "@/lib/site";
 
@@ -11,26 +10,51 @@ export const metadata: Metadata = {
   alternates: { canonical: "/menu" },
 };
 
+const deliveryLogos = [
+  {
+    name: "DiDi Food",
+    href: siteConfig.delivery.didi,
+    src: "/images/brands/didi.svg",
+    className: "h-8 w-auto sm:h-9",
+  },
+  {
+    name: "Rappi",
+    href: siteConfig.delivery.rappi,
+    src: "/images/brands/rappi.svg",
+    className: "h-9 w-auto sm:h-10",
+  },
+  {
+    name: "Uber Eats",
+    href: siteConfig.delivery.uber,
+    src: "/images/brands/ubereats.svg",
+    className: "h-10 w-auto sm:h-12",
+  },
+] as const;
+
 const pizzas = [
   {
     name: "Pizza Pepperoni",
     description: "Pepperoni clásico con queso derretido.",
-    image: "/images/menu/pizza-pepperoni.jpg",
+    image: "/images/menu/pizza-pepperoni.png",
+    cutout: true,
   },
   {
     name: "Pizza Hawaiana",
     description: "Jamón y piña sobre salsa de tomate.",
-    image: "/images/menu/pizza-pepperoni.jpg",
+    image: "/images/menu/pizza-queso.png",
+    cutout: true,
   },
   {
-    name: "Spaghetti",
+    name: "Espagueti",
     description: "Espagueti con salsa de tomate casera.",
     image: "/images/menu/wings.jpg",
+    cutout: false,
   },
   {
     name: "Boneless",
     description: "Crujientes, con papas y salsa Buffalo o BBQ.",
-    image: "/images/menu/nuggets.jpg",
+    image: "/images/menu/boneless.png",
+    cutout: true,
   },
 ] as const;
 
@@ -38,12 +62,12 @@ const starters = [
   {
     name: "Boneless",
     description: "8 pz acompañado de papas a la francesa.",
-    image: "/images/menu/nuggets.jpg",
+    image: "/images/menu/boneless.png",
   },
   {
     name: "Alitas",
     description: "10 pz acompañado de papas a la francesa.",
-    image: "/images/menu/wings.jpg",
+    image: "/images/menu/alitas.png",
   },
 ] as const;
 
@@ -57,8 +81,8 @@ const sidesLeft = [
     description: "300 grs de papas a la francesa.",
   },
   {
-    name: "Medio litro de Espaguetti",
-    description: "Espaguetti con salsa de tomate.",
+    name: "Medio litro de Espagueti",
+    description: "Espagueti con salsa de tomate.",
   },
 ] as const;
 
@@ -85,9 +109,6 @@ const drinks = [
   },
 ] as const;
 
-const deliveryCtaClass =
-  "min-h-12 rounded-full border-2 border-black px-8 text-sm font-extrabold uppercase tracking-wide transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 sm:min-h-14 sm:px-10 sm:text-base";
-
 export default function MenuPage() {
   return (
     <>
@@ -108,13 +129,24 @@ export default function MenuPage() {
                 className="relative flex flex-col items-center text-center"
               >
                 <div className="group relative w-full max-w-[220px]">
-                  <div className="relative mx-auto aspect-square overflow-hidden rounded-full bg-white/10 shadow-[0_14px_32px_rgba(0,0,0,0.28)] ring-2 ring-white/25">
+                  <div
+                    className={
+                      item.cutout
+                        ? "relative mx-auto aspect-square overflow-visible"
+                        : "relative mx-auto aspect-square overflow-hidden rounded-full bg-white/10 shadow-[0_14px_32px_rgba(0,0,0,0.28)] ring-2 ring-white/25"
+                    }
+                  >
                     <Image
                       src={item.image}
                       alt={item.name}
                       fill
                       sizes="220px"
-                      className="img-zoom object-cover"
+                      unoptimized={item.cutout}
+                      className={
+                        item.cutout
+                          ? "img-zoom object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.35)]"
+                          : "img-zoom object-cover"
+                      }
                       priority={i === 0}
                     />
                   </div>
@@ -132,35 +164,20 @@ export default function MenuPage() {
 
           <Reveal
             delay={200}
-            className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:mt-12 sm:gap-4"
+            className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:mt-12 sm:gap-x-12 lg:gap-x-14"
           >
-            <Button
-              asChild
-              size="lg"
-              className={`${deliveryCtaClass} bg-brand-yellow text-black hover:bg-brand-yellow`}
-            >
-              <a href={siteConfig.delivery.uber} target="_blank" rel="noopener noreferrer">
-                Uber Eats
+            {deliveryLogos.map((logo) => (
+              <a
+                key={logo.name}
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:opacity-90"
+                aria-label={`Pedir en ${logo.name}`}
+              >
+                <img src={logo.src} alt="" className={logo.className} />
               </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              className={`${deliveryCtaClass} bg-white text-black hover:bg-white`}
-            >
-              <a href={siteConfig.delivery.rappi} target="_blank" rel="noopener noreferrer">
-                Rappi
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              className={`${deliveryCtaClass} bg-brand-yellow text-black hover:bg-brand-yellow`}
-            >
-              <a href={siteConfig.delivery.didi} target="_blank" rel="noopener noreferrer">
-                DiDi Food
-              </a>
-            </Button>
+            ))}
           </Reveal>
         </div>
       </section>
@@ -191,13 +208,14 @@ export default function MenuPage() {
           <div className="mt-10 grid gap-10 sm:mt-12 md:grid-cols-2 md:gap-8 lg:gap-12">
             {starters.map((item, i) => (
               <Reveal key={item.name} delay={i * 70} className="group text-center">
-                <div className="relative mx-auto aspect-[5/4] max-w-md overflow-hidden rounded-[1.35rem] shadow-[0_14px_32px_rgba(0,0,0,0.28)] sm:rounded-[1.75rem]">
+                <div className="relative mx-auto aspect-[5/4] max-w-md">
                   <Image
                     src={item.image}
                     alt={item.name}
                     fill
                     sizes="(max-width:768px) 100vw, 50vw"
-                    className="img-zoom object-cover"
+                    unoptimized
+                    className="img-zoom object-contain drop-shadow-[0_16px_32px_rgba(0,0,0,0.4)]"
                   />
                 </div>
                 <h3 className="mt-5 font-display text-[clamp(2rem,4vw,2.75rem)] font-black leading-none text-brand-yellow">
@@ -335,13 +353,18 @@ export default function MenuPage() {
             Encuéntranos en
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:gap-x-12 lg:gap-x-14">
-            <img src="/images/brands/didi.svg" alt="DiDi" className="h-8 w-auto sm:h-9" />
-            <img src="/images/brands/rappi.svg" alt="Rappi" className="h-9 w-auto sm:h-10" />
-            <img
-              src="/images/brands/ubereats.svg"
-              alt="Uber Eats"
-              className="h-10 w-auto sm:h-12"
-            />
+            {deliveryLogos.map((logo) => (
+              <a
+                key={logo.name}
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:opacity-90"
+                aria-label={`Pedir en ${logo.name}`}
+              >
+                <img src={logo.src} alt="" className={logo.className} />
+              </a>
+            ))}
           </div>
         </Reveal>
       </section>

@@ -5,6 +5,7 @@ import { GalleryCarousel } from "@/components/home/gallery-carousel";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { EventQuoteForm } from "@/features/eventos/event-quote-form";
+import { getPublishedPromoItems } from "@/lib/promotions";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +15,8 @@ export const metadata: Metadata = {
     "Eventos escolares, empresariales, sociales y fiestas en Incredible Pizza Monterrey. Capacidad hasta 2,000 personas. Grupos desde 25.",
   alternates: { canonical: "/eventos" },
 };
+
+export const dynamic = "force-dynamic";
 
 const offers = [
   "Áreas 100% climatizadas",
@@ -197,13 +200,9 @@ function EventTypeCard({ event, delay = 0 }: { event: EventCard; delay?: number 
   );
 }
 
-const promos = [
-  { src: "/images/eventos/promo-grupos.jpg", alt: "Promoción reserva tu evento" },
-  { src: "/images/eventos/promo-escolares.jpg", alt: "Promoción paquetes escolares" },
-  { src: "/images/eventos/promo-recarga.jpg", alt: "Promoción recarga y gana" },
-] as const;
+export default async function EventosPage() {
+  const promos = await getPublishedPromoItems();
 
-export default function EventosPage() {
   return (
     <>
       {/* Hero — flyer: red→orange band + logo CTA + 3 photos */}

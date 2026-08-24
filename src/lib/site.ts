@@ -36,11 +36,11 @@ export const siteConfig = {
     tiktok: "https://www.tiktok.com/@ipcmty",
   },
   storeUrl: "https://tiendaenlinea.incrediblepizza.mx/app",
-  /** Links directos de delivery — sustituir por URLs de tienda definitivas */
+  /** Links directos de delivery — tiendas Incredible Pizza */
   delivery: {
-    uber: "https://www.ubereats.com/mx/search?q=Incredible%20Pizza%20Monterrey",
-    rappi: "https://www.rappi.com.mx/buscar?query=Incredible%20Pizza",
-    didi: "https://www.didi-food.com/es-MX/food/search?q=Incredible%20Pizza%20Monterrey",
+    uber: "https://www.ubereats.com/mx-en/store/incredible-pizza/YXaIjIw0XKOXHaWi2WqvPA?diningMode=DELIVERY",
+    rappi: "https://www.rappi.com.mx/restaurantes/1923462741-incredible-pizza",
+    didi: "https://www.didi-food.com/es-MX/food/store/5764607705952813792/Increible-Pizza-Company/",
   },
 } as const;
 

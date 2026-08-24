@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { GalleryCarousel } from "@/components/home/gallery-carousel";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
+import { getPublishedPromoItems } from "@/lib/promotions";
 
 export const metadata: Metadata = {
   title: "Promociones",
@@ -10,22 +11,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/promociones" },
 };
 
-const promos = [
-  {
-    src: "/images/eventos/promo-grupos.jpg",
-    alt: "Promoción reserva tu evento",
-  },
-  {
-    src: "/images/eventos/promo-escolares.jpg",
-    alt: "Promoción paquetes escolares",
-  },
-  {
-    src: "/images/eventos/promo-recarga.jpg",
-    alt: "Promoción recarga y gana",
-  },
-] as const;
+export const dynamic = "force-dynamic";
 
-export default function PromocionesPage() {
+export default async function PromocionesPage() {
+  const promos = await getPublishedPromoItems();
+
   return (
     <section className="bg-gradient-to-b from-[#fff8e0] via-[#f5d84a] to-[#f5d84a] pb-16 pt-44 sm:pb-20 sm:pt-52 lg:pb-24 lg:pt-60">
       <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">

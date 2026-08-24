@@ -52,6 +52,15 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Prisma local SQLite
+/prisma/*.db
+/prisma/*.db-journal
+
+# Uploads locales de promociones
+/public/uploads/
+!/public/uploads/.gitkeep
+
+
 # IDE / local tooling
 .idea/
 .vscode/*
