@@ -268,7 +268,7 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* CTA personajes — rojo→naranja, ángulo hacia el footer */}
+      {/* CTA — rojo→naranja, ángulo hacia el footer */}
       <section className="relative z-20 -mb-[clamp(2.75rem,5vw,4.5rem)] overflow-x-clip">
         <div
           className="relative w-full"
@@ -282,23 +282,11 @@ export default function QuienesSomosPage() {
           <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:px-8 sm:py-12 lg:px-10 lg:py-14">
             <Reveal className="w-full sm:flex-1">
               <h2 className="max-w-[16ch] text-center font-display text-[clamp(1.85rem,5vw,3rem)] font-black italic leading-[0.95] text-white sm:-rotate-2 sm:text-left">
-                Conoce a todos nuestros personajes y comedores
+                Ven a vivir la experiencia Incredible
               </h2>
             </Reveal>
 
-            <Reveal
-              delay={60}
-              className="flex w-full flex-col items-center gap-5 sm:w-auto sm:flex-row sm:items-center sm:gap-6"
-            >
-              <div className="size-[5.5rem] shrink-0 overflow-hidden rounded-full bg-[#f6dc82] shadow-[0_6px_16px_rgba(0,0,0,0.2)] sm:size-[6.5rem]">
-                <Image
-                  src="/images/about/personaje-circle.png"
-                  alt="Personaje Incredible Pizza"
-                  width={208}
-                  height={208}
-                  className="h-full w-full scale-[1.28] object-cover object-[58%_42%]"
-                />
-              </div>
+            <Reveal delay={60} className="flex w-full justify-center sm:w-auto">
               <Button
                 asChild
                 variant="secondary"

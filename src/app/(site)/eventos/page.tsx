@@ -31,11 +31,11 @@ const heroGallery = [
     alt: "Show en vivo y baile en Incredible Pizza",
   },
   {
-    src: "/images/home/card-juegos.jpg",
-    alt: "Entretenimiento y atracciones en el evento",
+    src: "/images/eventos/zancos.jpg",
+    alt: "Entretenimiento y zancos en el evento",
   },
   {
-    src: "/images/home/fiesta-pinata.jpg",
+    src: "/images/eventos/pinata.jpg",
     alt: "Fiesta con piñata para niños",
   },
 ] as const;
@@ -120,16 +120,16 @@ const eventGalleryTop = [
 
 const eventGalleryBottom = [
   {
-    src: "/images/home/gallery/carousel-02-v2.jpg",
-    alt: "Grupo disfrutando un evento",
+    src: "/images/eventos/grupo-mascotas.jpg",
+    alt: "Grupo de niños con mascotas Incredible Pizza",
   },
   {
-    src: "/images/eventos/live-show.jpg",
-    alt: "Reunión o presentación en salón",
+    src: "/images/eventos/empresas.jpg",
+    alt: "Evento empresarial en salón",
   },
   {
-    src: "/images/home/gallery/carousel-05-v2.jpg",
-    alt: "Grupo grande en Incredible Pizza",
+    src: "/images/eventos/escolares.jpg",
+    alt: "Grupo escolar en Incredible Pizza",
   },
 ] as const;
 

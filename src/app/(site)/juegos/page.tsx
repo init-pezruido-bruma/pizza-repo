@@ -18,56 +18,48 @@ const attractions = [
     description:
       "¡Súper divertidos y llenos de adrenalina! Asegúrate de vivir esta experiencia cuando visites Incredible Pizza.",
     image: "/images/juegos/gokarts.jpg",
-    note: "Atracción incluida en tarjetas de tiempo platino, créditos y bonus.",
   },
   {
     title: "Mini Boliche",
     description:
       "¡Súper divertidos y llenos de adrenalina! Asegúrate de vivir esta experiencia cuando visites Incredible Pizza.",
-    image: "/images/home/hero-juegos-increibles.jpg",
-    note: "Distingue tu juego por el color de tarjeta, atracción incluida en tarjetas de créditos.",
+    image: "/images/juegos/mini-boliche.jpg",
   },
   {
     title: "Tagadá",
     description:
       "¡Disfruta de una increíble experiencia! ¿Te gusta desafiar la fuerza centrífuga? Tagadá te ofrece momentos de gran diversión en grupo.",
-    image: "/images/home/card-juegos.jpg",
-    note: "Atracción incluida en tarjetas de tiempo platino, créditos y bonus.",
+    image: "/images/juegos/tagada.jpg",
   },
   {
     title: "Mini Golf",
     description:
       "Juega en nuestro campo de mini golf y disfruta de una gran cantidad de diversión. ¡La meta!… ¡Lograr un hoyo en uno!",
-    image: "/images/home/gallery/carousel-04-v2.jpg",
-    note: "Distingue tu juego por el color de tarjeta, atracción incluida en tarjetas de créditos.",
+    image: "/images/juegos/mini-golf.jpg",
   },
   {
     title: "Resbaladeros Gigantes",
     description:
       "Sube a nuestros resbaladeros gigantes ¡No importa qué edad tengas, en Incredible Pizza nos divertimos todos!",
-    image: "/images/juegos/trampolines.jpg",
-    note: "Distingue tu juego por el color de tarjeta, atracción incluida en tarjetas de créditos.",
+    image: "/images/juegos/slides.jpg",
   },
   {
     title: "Bumpers Cars",
     description:
       "Disfruta de la música y el espectáculo de luces, da giros incontrolables y asegúrate de abrocharte el cinturón.",
-    image: "/images/home/rapido-y-furioso.jpg",
-    note: "Distingue tu juego por el color de tarjeta, atracción incluida en tarjetas de créditos.",
+    image: "/images/juegos/bumpers.jpg",
   },
   {
     title: "Laser Tag",
     description:
       "Demuestra tus habilidades y estrategias, reúne a tus amigos y pasen una tarde llena de acción.",
     image: "/images/juegos/laser-tag.jpg",
-    note: "Atracción incluida en tarjetas de tiempo platino, créditos y bonus.",
   },
   {
     title: "Lost in Space",
     description:
       "Vuela al espacio con esta nueva atracción. Da vueltas para encontrar el camino al planeta Tierra. ¡Crea momentos increíbles!",
-    image: "/images/juegos/racing-sim.jpg",
-    note: "Atracción incluida en tarjetas de tiempo platino, créditos y bonus.",
+    image: "/images/juegos/lost-in-space.jpg",
   },
 ] as const;
 
@@ -75,23 +67,19 @@ const incredibleGames = [
   {
     title: "Golden Games (Cranes)",
     description:
-      "Son todos los juegos que dan premio directo, como nuestras máquinas de garra donde podrás ganar peluches, dulces, accesorios para celular, etc. Reconócelos por su lector de tarjeta color Multicolor.",
-    image: "/images/home/gallery/carousel-02-v2.jpg",
-    note: "Estas máquinas únicamente aceptan tarjetas de créditos.",
+      "Son todos los juegos que dan premio directo, como nuestras máquinas de garra donde podrás ganar peluches, dulces, accesorios para celular y más.",
+    image: "/images/juegos/cranes.jpg",
   },
   {
     title: "Golden Games (Tokens)",
     description:
       "Demuestra tu destreza con las máquinas de monedas y obtén tickets físicos, que podrás canjear en nuestro mostrador de redención.",
-    image: "/images/juegos/racing-sim.jpg",
-    note: "Estas máquinas necesitan monedas que únicamente se pueden canjear con tarjetas de créditos.",
+    image: "/images/juegos/tokens.jpg",
   },
   {
     title: "Golden Games",
-    description:
-      "En una jugada puedes ganar hasta 1000 tickets distínguelos por el lector de tarjeta multicolor.",
-    image: "/images/home/hero-juegos-increibles.jpg",
-    note: "Estas máquinas únicamente aceptan tarjetas de créditos.",
+    description: "En una jugada puedes ganar hasta 1000 tickets.",
+    image: "/images/juegos/golden.jpg",
   },
 ] as const;
 
@@ -182,9 +170,6 @@ export default function JuegosPage() {
                     <p className="text-[0.8rem] leading-snug text-brand-ink/80 sm:text-[0.85rem]">
                       {item.description}
                     </p>
-                    <p className="mt-auto pt-2 text-[9px] font-extrabold uppercase leading-snug tracking-[0.04em] text-[#5a8fc4] sm:text-[10px]">
-                      {item.note}
-                    </p>
                   </div>
                 </Reveal>
               ))}
@@ -202,20 +187,13 @@ export default function JuegosPage() {
                 Nuestro salón de juegos está lleno de más de 120 máquinas con todo tipo de
                 diversión. Tenemos videojuegos con los que pasarás un día lleno de diversión.
               </p>
-              <p className="mt-5 text-[11px] font-extrabold uppercase leading-snug tracking-[0.04em] text-[#2b5899] sm:text-xs">
-                Todos los videojuegos están incluidos en las tarjetas de tiempo regular, platino,
-                créditos y bonus
-              </p>
-              <p className="mt-2 text-[11px] font-extrabold uppercase leading-snug tracking-[0.04em] text-brand-red sm:text-xs">
-                (Excepto Fast & Furious esta máquina únicamente acepta créditos)
-              </p>
             </div>
           </Reveal>
 
           {/* Photo right — pulls up under Atracciones angle (same as home Fiesta) */}
           <Reveal className="group relative z-10 -mt-[clamp(3.75rem,7vw,5.5rem)] min-h-[320px] overflow-hidden sm:min-h-[400px] lg:-mt-[clamp(3.5rem,6vw,5.5rem)] lg:min-h-[36rem] xl:min-h-[40rem]">
             <Image
-              src="/images/home/gallery/carousel-02-v2.jpg"
+              src="/images/juegos/racing-sim.jpg"
               alt="Sala de videojuegos y simuladores"
               fill
               sizes="(max-width:1024px) 100vw, 50vw"
@@ -272,9 +250,6 @@ export default function JuegosPage() {
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-white/90 sm:text-[0.95rem]">
                 {game.description}
-              </p>
-              <p className="mt-4 text-[10px] font-extrabold uppercase leading-snug tracking-[0.05em] text-brand-yellow sm:text-[11px]">
-                {game.note}
               </p>
             </Reveal>
           ))}

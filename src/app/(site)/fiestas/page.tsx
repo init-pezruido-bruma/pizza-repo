@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { PageHeading, PageSection } from "@/components/layout/page-section";
@@ -20,14 +21,14 @@ const quoteWhatsAppHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURI
 const reasons = [
   {
     title: "Juegos con créditos",
-    description: "Arcade y atracciones con la tarjeta y créditos de tu paquete.",
+    description: "Arcade y atracciones incluidas en tu paquete.",
     image: "/images/fiestas/reason-laser.jpg",
   },
   {
     title: "Buffet",
     description:
       "Selección de pizzas, barra de ensaladas, hot dogs, platillos especiales y mucho más.",
-    image: "/images/menu/buffet.jpg",
+    image: "/images/fiestas/reason-buffet.jpg",
   },
   {
     title: "Escenografía incluida",
@@ -291,9 +292,12 @@ export default function FiestasPage() {
         </div>
 
         <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-white/85 sm:mt-8 sm:text-sm">
-          Precios sujetos a cambio sin previo aviso. Aplican términos y condiciones. El
-          cumpleañero entra gratis con la compra del paquete. Consulta vigencia, disponibilidad y
-          detalles al cotizar.
+          Las promociones y paquetes no son acumulables. Aplican{" "}
+          <Link href="/terminos" className="underline underline-offset-2 hover:text-white">
+            términos y condiciones
+          </Link>
+          . Precios sujetos a cambio sin previo aviso. El cumpleañero entra gratis con la compra del
+          paquete. Consulta vigencia, disponibilidad y detalles al cotizar.
         </p>
 
         <Reveal delay={100}>
