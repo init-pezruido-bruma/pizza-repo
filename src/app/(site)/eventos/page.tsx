@@ -310,6 +310,7 @@ export default async function EventosPage() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
+                quality={90}
                 sizes="(max-width:640px) 100vw, 33vw"
                 className="img-zoom object-cover"
                 priority={i === 0}
@@ -376,6 +377,7 @@ export default async function EventosPage() {
                     src={photo.src}
                     alt={photo.alt}
                     fill
+                    quality={90}
                     sizes="(max-width:768px) 100vw, 66vw"
                     className="img-zoom object-cover"
                   />
@@ -393,6 +395,7 @@ export default async function EventosPage() {
                     src={photo.src}
                     alt={photo.alt}
                     fill
+                    quality={90}
                     sizes="(max-width:640px) 100vw, 33vw"
                     className="img-zoom object-cover"
                   />

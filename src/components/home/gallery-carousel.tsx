@@ -154,6 +154,7 @@ export function GalleryCarousel({
                       alt={item.alt}
                       fill
                       sizes={isActive ? "(max-width:640px) 70vw, 340px" : "220px"}
+                      quality={90}
                       className="object-cover object-center"
                       draggable={false}
                       priority={isActive}

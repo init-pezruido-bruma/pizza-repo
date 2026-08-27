@@ -147,6 +147,7 @@ export default function FiestasPage() {
               width={3840}
               height={1295}
               sizes="100vw"
+              quality={90}
               priority
               className="img-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]"
             />
@@ -162,6 +163,7 @@ export default function FiestasPage() {
             width={978}
             height={978}
             sizes="180px"
+            quality={90}
             className="float-soft size-28 rounded-full border-4 border-white object-cover shadow-lg sm:size-40 lg:size-44"
           />
         </Reveal>
@@ -183,6 +185,7 @@ export default function FiestasPage() {
                   width={560}
                   height={560}
                   sizes="(max-width:1024px) 208px, 224px"
+                  quality={90}
                   className="img-zoom h-full w-full object-cover"
                 />
               </div>
@@ -355,6 +358,7 @@ export default function FiestasPage() {
                 src="/images/fiestas/party-table.jpg"
                 alt="Mesa de fiesta con pizza y cupcakes"
                 fill
+                quality={90}
                 sizes="(max-width:1024px) 100vw, 50vw"
                 className="img-zoom object-cover object-center"
               />

@@ -41,6 +41,7 @@ export function FullImage({
         height={height}
         priority={priority}
         sizes={sizes}
+        quality={90}
         className={cn(
           "mx-auto h-auto w-full object-contain",
           maxHeightClass,

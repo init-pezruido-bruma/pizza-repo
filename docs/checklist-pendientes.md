@@ -13,7 +13,7 @@ Estado revisado · 18 ago 2026
 | **MEN-03** | Uber / Rappi / DiDi con URLs de tienda + logos |
 | **GEN-03** | Redes sociales reales en footer |
 | **HOM-01 / QUI-02** | “Compra aquí” → `storeUrl` (confirmar si es la URL final de prod) |
-| **MEN-01 / MEN-06** | Pepperoni, queso, Boneless, Alitas sin fondo. **Falta** foto real Hawaiana y Espagueti |
+| **MEN-01 / MEN-06** | Pepperoni, queso, Boneless, Alitas sin fondo. **Falta** foto real Hawaiana y Spaghetti |
 | **EVE-09** | Formulario → `POST /api/cotizacion` + bandeja admin + Resend opcional |
 | Resto front checklist Natalia | Precios menú out, fiestas/eventos/home/contacto/footer/promos/juegos Tiny Town, etc. |
 
@@ -24,7 +24,7 @@ Estado revisado · 18 ago 2026
 | ID | Qué falta |
 |---|---|
 | **HOM-01** | Confirmar URL final tienda en línea |
-| **MEN-01** | Foto Hawaiana + foto Espagueti |
+| **MEN-01** | Foto Hawaiana + foto Spaghetti |
 | **JUE-03** | Foto cranes (máquinas de garra) |
 | **EVE-07 / PRO** | Artes nuevas de promociones del mes |
 | **QUI-07** | Fotos 4 comedores (Dinner, Starlite, Gymnasium, The Family Room) |

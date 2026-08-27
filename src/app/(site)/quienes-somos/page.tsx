@@ -127,6 +127,7 @@ export default function QuienesSomosPage() {
             alt="Monterrey es Increíble — mascota y auto clásico"
             fill
             priority
+            quality={90}
             sizes="100vw"
             className="img-zoom object-cover object-[center_40%]"
           />
@@ -195,6 +196,7 @@ export default function QuienesSomosPage() {
               src="/images/about/buffet-interior.jpg"
               alt="Buffet de Incredible Pizza"
               fill
+              quality={90}
               sizes="(max-width:1024px) 100vw, 50vw"
               className="img-zoom object-cover"
             />

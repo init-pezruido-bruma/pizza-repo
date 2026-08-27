@@ -116,6 +116,7 @@ export function CircleFeature({ title, description, image }: CircleFeatureProps)
         width={400}
         height={400}
         sizes="(max-width:640px) 160px, 192px"
+        quality={90}
         className="mx-auto mb-4 size-32 rounded-full border-4 border-white object-contain shadow-md sm:size-40"
       />
  <h3 className="font-display text-lg font-black text-brand-yellow">{title}</h3>
@@ -185,6 +186,7 @@ export function MenuItemCard({ name, description, price, image }: MenuItemCardPr
           width={440}
           height={440}
           sizes="(max-width:640px) 60vw, 220px"
+          quality={90}
           className="mx-auto mb-4 h-auto w-full max-w-[220px] object-contain drop-shadow-xl"
         />
       ) : null}

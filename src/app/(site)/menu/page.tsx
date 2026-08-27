@@ -81,7 +81,7 @@ const sidesLeft = [
     description: "300 grs de papas a la francesa.",
   },
   {
-    name: "Espagueti",
+    name: "Spaghetti",
     description: "Medio litro con salsa de tomate.",
   },
 ] as const;
@@ -130,6 +130,7 @@ export default function MenuPage() {
                       alt={item.name}
                       fill
                       sizes="220px"
+                      quality={90}
                       unoptimized={item.cutout}
                       className={
                         item.cutout
@@ -245,6 +246,7 @@ export default function MenuPage() {
                 src="/images/menu/appetizers.jpg"
                 alt="Complementos del menú: papas, boneless y alitas"
                 fill
+                quality={90}
                 sizes="(max-width:1024px) 100vw, 50vw"
                 className="img-zoom object-cover"
               />

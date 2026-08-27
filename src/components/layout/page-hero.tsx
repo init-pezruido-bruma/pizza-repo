@@ -56,6 +56,7 @@ export function PageHero({
             width={image.width}
             height={image.height}
             priority
+            quality={90}
             sizes="100vw"
             className="absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition: image.objectPosition ?? "center center" }}
@@ -157,6 +158,7 @@ export function PageHero({
                 width={image.width}
                 height={image.height}
                 priority
+                quality={90}
                 sizes="100vw"
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ objectPosition: image.objectPosition ?? "center center" }}
@@ -199,6 +201,7 @@ export function PageHero({
                 width={image.width}
                 height={image.height}
                 priority
+                quality={90}
                 sizes="(max-width:1024px) 100vw, 560px"
                 className="h-full w-full object-cover"
                 style={{ objectPosition: image.objectPosition ?? "center center" }}

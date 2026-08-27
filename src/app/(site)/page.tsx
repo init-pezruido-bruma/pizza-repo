@@ -244,6 +244,7 @@ export default function HomePage() {
                   width={940}
                   height={618}
                   sizes="(max-width:1024px) 94vw, 896px"
+                  quality={90}
                   className="mx-auto h-auto w-full drop-shadow-xl"
                   aria-hidden
                   priority={false}
@@ -277,6 +278,7 @@ export default function HomePage() {
                 width={1024}
                 height={1002}
                 sizes="(max-width:640px) 120px, 320px"
+                quality={90}
                 className="float-soft absolute -left-6 -bottom-4 z-20 w-[7.25rem] drop-shadow-lg sm:-left-24 sm:-bottom-8 sm:w-[15.7rem] md:-left-32 md:w-[20.2rem]"
               />
               <Image
@@ -285,6 +287,7 @@ export default function HomePage() {
                 width={1024}
                 height={1024}
                 sizes="(max-width:640px) 120px, 320px"
+                quality={90}
                 className="float-soft absolute -right-6 -top-5 z-20 w-[7.25rem] drop-shadow-lg sm:-right-24 sm:-top-10 sm:w-[15.7rem] md:-right-32 md:w-[20.2rem]"
                 style={{ animationDelay: "1.2s" }}
               />

@@ -96,6 +96,7 @@ export default function JuegosPage() {
               width={3840}
               height={1714}
               priority
+              quality={90}
               sizes="100vw"
               className="img-zoom absolute inset-0 h-full w-full object-cover object-[center_40%]"
             />
@@ -160,6 +161,7 @@ export default function JuegosPage() {
                       width={800}
                       height={640}
                       sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
+                      quality={90}
                       className="img-zoom h-full w-full object-cover"
                     />
                   </div>
@@ -196,6 +198,7 @@ export default function JuegosPage() {
               src="/images/juegos/racing-sim.jpg"
               alt="Sala de videojuegos y simuladores"
               fill
+              quality={90}
               sizes="(max-width:1024px) 100vw, 50vw"
               className="img-zoom object-cover object-center"
             />
@@ -242,6 +245,7 @@ export default function JuegosPage() {
                   width={800}
                   height={1000}
                   sizes="(max-width:768px) 100vw, 33vw"
+                  quality={90}
                   className="img-zoom h-full w-full object-cover"
                 />
               </div>
@@ -265,6 +269,7 @@ export default function JuegosPage() {
               src="/images/juegos/tiny-town.jpg"
               alt="Área Tiny Town para niños pequeños"
               fill
+              quality={90}
               sizes="100vw"
               className="scale-105 object-cover object-right opacity-90"
               priority={false}
