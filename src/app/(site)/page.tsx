@@ -159,9 +159,9 @@ export default function HomePage() {
 
       {/* 4. Cards — buffet / juegos / to-go */}
       <section className="bg-brand-red py-12 sm:py-14">
-        <div className="mx-auto grid max-w-6xl gap-8 px-5 sm:px-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-7 lg:px-10">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 sm:px-8 md:grid-cols-2 md:max-lg:[&>:last-child:nth-child(odd)]:col-span-2 md:max-lg:[&>:last-child:nth-child(odd)]:w-[min(100%,calc((100%-2rem)/2))] md:max-lg:[&>:last-child:nth-child(odd)]:justify-self-center lg:grid-cols-3 lg:gap-7 lg:px-10">
           {services.map((item, i) => (
-            <Reveal key={item.title} as="article" delay={i * 90} className="group flex flex-col">
+            <Reveal key={item.title} as="article" delay={i * 90} className="group flex w-full flex-col">
               <div className="hover-lift relative aspect-square w-full overflow-hidden rounded-3xl bg-brand-red">
                 <Image
                   src={item.image}

@@ -78,18 +78,18 @@ export function HoursBanner() {
           boxShadow: "0 10px 24px rgba(35, 31, 32, 0.16)",
         }}
       >
-        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 px-5 py-14 text-center sm:flex-row sm:items-center sm:justify-center sm:gap-14 sm:px-8 sm:py-16 sm:text-left lg:gap-20 lg:px-10 lg:py-[4.5rem]">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-8 px-5 py-14 text-center sm:px-8 sm:py-16 lg:flex-row lg:items-center lg:justify-center lg:gap-16 lg:px-10 lg:py-[4.5rem] lg:text-left xl:gap-20">
           <p
             ref={titleRef}
-            className="origin-center font-display text-[clamp(3.25rem,10vw,5.75rem)] font-black leading-[0.92] text-white drop-shadow-[0_3px_0_rgba(35,31,32,0.25)] will-change-transform sm:shrink-0"
+            className="origin-center font-display text-[clamp(3.25rem,10vw,5.75rem)] font-black leading-[0.92] text-white drop-shadow-[0_3px_0_rgba(35,31,32,0.25)] will-change-transform lg:shrink-0"
           >
             ¡Abrimos todos
-            <br className="sm:hidden" /> los días!
+            <br className="lg:hidden" /> los días!
           </p>
 
           <div
             ref={hoursRef}
-            className="flex w-full origin-center flex-col gap-3 will-change-transform sm:w-auto sm:min-w-[24.5rem] sm:shrink-0"
+            className="flex w-full max-w-md origin-center flex-col gap-3 will-change-transform lg:w-auto lg:max-w-none lg:min-w-[24.5rem] lg:shrink-0"
           >
             <HourRow label="Lun – Vie" time="11:00 AM – 9:00 PM" />
             <HourRow label="Sáb – Dom" time="11:00 AM – 9:00 PM" />
@@ -102,8 +102,8 @@ export function HoursBanner() {
 
 function HourRow({ label, time }: { label: string; time: string }) {
   return (
-    <div className="flex w-full items-center justify-between gap-5 whitespace-nowrap rounded-full bg-brand-ink/90 px-5 py-3 text-white shadow-[0_4px_0_0_rgba(255,194,14,0.85)] sm:min-w-[24.5rem] sm:gap-6 sm:px-8 sm:py-3.5">
-      <span className="inline-flex w-[7.25rem] shrink-0 items-center justify-center rounded-full bg-brand-yellow px-3.5 py-1.5 text-xs font-black uppercase tracking-wide text-brand-ink sm:w-[8rem] sm:text-sm">
+    <div className="flex w-full items-center justify-between gap-5 whitespace-nowrap rounded-full bg-brand-ink/90 px-5 py-3 text-white shadow-[0_4px_0_0_rgba(255,194,14,0.85)] lg:min-w-[24.5rem] lg:gap-6 lg:px-8 lg:py-3.5">
+      <span className="inline-flex w-[7.25rem] shrink-0 items-center justify-center rounded-full bg-brand-yellow px-3.5 py-1.5 text-xs font-black uppercase tracking-wide text-brand-ink lg:w-[8rem] lg:text-sm">
         {label}
       </span>
       <span className="shrink-0 text-base font-extrabold tabular-nums tracking-wide sm:text-lg">

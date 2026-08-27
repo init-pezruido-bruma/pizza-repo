@@ -211,7 +211,7 @@ export default function FiestasPage() {
           </p>
         </Reveal>
 
-        <div className="grid items-stretch gap-8 pt-6 pb-4 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-28 sm:pt-20 sm:pb-36 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-24">
+        <div className="grid items-stretch gap-8 pt-6 pb-4 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-28 sm:pt-20 sm:pb-36 sm:max-xl:[&>:last-child:nth-child(odd)]:col-span-2 sm:max-xl:[&>:last-child:nth-child(odd)]:w-[min(100%,calc((100%-2.5rem)/2))] sm:max-xl:[&>:last-child:nth-child(odd)]:justify-self-center xl:grid-cols-3 xl:gap-x-8 xl:gap-y-24">
           {packages.map((pkg, i) => (
             <Reveal key={pkg.name} delay={i * 70} className="relative overflow-visible">
               {/* Cuadro blanco */}
