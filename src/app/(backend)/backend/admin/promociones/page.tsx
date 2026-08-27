@@ -4,9 +4,9 @@ import {
   archivePromotionAction,
   deletePromotionAction,
   publishPromotionAction,
-  uploadPromotionAction,
 } from "@/lib/admin/promo-actions";
-import { Button } from "@/components/ui/button";
+import { ActionForm } from "@/components/admin/action-form";
+import { PromoUploadForm } from "@/components/admin/promo-upload-form";
 
 export default async function AdminPromocionesPage() {
   const promos = await prisma.promotion.findMany({
@@ -20,47 +20,13 @@ export default async function AdminPromocionesPage() {
   return (
     <div className="space-y-10">
       <div>
-        <h1 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-black">Promociones</h1>
+        <h1 className="font-display text-[clamp(1.85rem,6vw,2.75rem)] font-black">Promociones</h1>
         <p className="mt-1 text-sm text-brand-ink/70">
           Sube artes, publícalas en el sitio y conserva historial al archivarlas.
         </p>
       </div>
 
-      <form
-        action={uploadPromotionAction}
-        encType="multipart/form-data"
-        className="max-w-xl space-y-4 rounded-2xl border border-black/10 bg-white p-6 shadow-sm"
-      >
-        <h2 className="font-display text-xl font-black text-brand-blue">Subir promoción</h2>
-        <p className="text-sm leading-relaxed text-brand-ink/65">
-          Ideal: <span className="font-semibold text-brand-ink">1080 × 1350 px</span> (proporción{" "}
-          <span className="font-semibold text-brand-ink">4:5</span>, vertical). También sirve{" "}
-          <span className="font-semibold text-brand-ink">1200 × 1500</span>. JPG o PNG, máx. 8 MB.
-          Evita texto muy pegado a los bordes (el carrusel recorta un poco).
-        </p>
-        <label className="grid gap-1 text-xs font-bold uppercase tracking-wide text-brand-ink/70">
-          Título (opcional)
-          <input
-            name="title"
-            className="rounded-xl border border-black/15 px-4 py-3 text-sm outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/30"
-          />
-        </label>
-        <label className="grid gap-1 text-xs font-bold uppercase tracking-wide text-brand-ink/70">
-          Imagen *
-          <input
-            name="image"
-            type="file"
-            accept="image/jpeg,image/png,image/webp,image/gif"
-            required
-            className="text-sm"
-          />
-        </label>
-        <label className="flex items-center gap-2 text-sm font-semibold">
-          <input type="checkbox" name="publishNow" className="size-4" defaultChecked />
-          Publicar ahora en el sitio
-        </label>
-        <Button type="submit">Subir</Button>
-      </form>
+      <PromoUploadForm />
 
       <PromoSection title="Publicadas" items={published} mode="published" />
       <PromoSection title="Borradores" items={drafts} mode="draft" />
@@ -101,7 +67,7 @@ function PromoSection({
               key={item.id}
               className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm"
             >
-              <div className="relative aspect-[4/3] bg-black/5">
+              <div className="relative aspect-[4/5] bg-black/5 sm:aspect-[4/3]">
                 <Image
                   src={item.imageUrl}
                   alt={item.title || "Promoción"}
@@ -122,38 +88,38 @@ function PromoSection({
                         : `Creada ${item.createdAt.toLocaleString("es-MX")}`}
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                   {mode !== "published" ? (
-                    <form action={publishPromotionAction}>
+                    <ActionForm action={publishPromotionAction} success="Publicada en el sitio.">
                       <input type="hidden" name="id" value={item.id} />
                       <button
                         type="submit"
-                        className="rounded-full bg-brand-yellow px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-black"
+                        className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-yellow px-4 text-xs font-extrabold uppercase tracking-wide text-black sm:w-auto"
                       >
                         Publicar
                       </button>
-                    </form>
+                    </ActionForm>
                   ) : (
-                    <form action={archivePromotionAction}>
+                    <ActionForm action={archivePromotionAction} success="Archivada.">
                       <input type="hidden" name="id" value={item.id} />
                       <button
                         type="submit"
-                        className="rounded-full border border-black/15 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide"
+                        className="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-black/15 px-4 text-xs font-extrabold uppercase tracking-wide sm:w-auto"
                       >
                         Bajar / archivar
                       </button>
-                    </form>
+                    </ActionForm>
                   )}
                   {mode === "archived" ? (
-                    <form action={deletePromotionAction}>
+                    <ActionForm action={deletePromotionAction} success="Eliminada.">
                       <input type="hidden" name="id" value={item.id} />
                       <button
                         type="submit"
-                        className="rounded-full px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-brand-red"
+                        className="inline-flex min-h-11 w-full items-center justify-center rounded-full px-4 text-xs font-extrabold uppercase tracking-wide text-brand-red sm:w-auto"
                       >
                         Eliminar
                       </button>
-                    </form>
+                    </ActionForm>
                   ) : null}
                 </div>
               </div>

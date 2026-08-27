@@ -19,6 +19,12 @@ export async function savePromoImage(file: File, ext: string): Promise<string> {
     return blob.url;
   }
 
+  if (process.env.VERCEL) {
+    throw new Error(
+      "Falta Blob en Vercel: Storage → Create Blob, conéctalo al proyecto y haz Redeploy.",
+    );
+  }
+
   const dir = path.join(process.cwd(), "public", "uploads", "promos");
   await mkdir(dir, { recursive: true });
   const buffer = Buffer.from(await file.arrayBuffer());

@@ -38,7 +38,7 @@ export default async function AdminHomePage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-black text-brand-ink">
+        <h1 className="font-display text-[clamp(1.85rem,6vw,2.75rem)] font-black text-brand-ink">
           Panel
         </h1>
         <p className="mt-1 text-sm text-brand-ink/70">
@@ -50,7 +50,7 @@ export default async function AdminHomePage() {
           <Link
             key={card.href}
             href={card.href}
-            className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            className="flex min-h-24 flex-col rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
           >
             <h2 className="font-display text-xl font-black text-brand-blue">{card.title}</h2>
             <p className="mt-2 text-sm leading-relaxed text-brand-ink/70">{card.body}</p>
