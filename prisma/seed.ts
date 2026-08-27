@@ -15,7 +15,10 @@ async function main() {
   const name = process.env.ADMIN_NAME?.trim() || "Admin";
 
   if (!email || !password) {
-    throw new Error("Set ADMIN_EMAIL and ADMIN_PASSWORD before running db:seed");
+    console.log(
+      "Skipping seed: set ADMIN_EMAIL and ADMIN_PASSWORD (Vercel → Environment Variables) to create the admin.",
+    );
+    return;
   }
 
   const passwordHash = await hash(password, 12);
