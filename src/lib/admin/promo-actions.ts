@@ -1,11 +1,9 @@
 "use server";
 
-import { randomUUID } from "crypto";
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
+import { deletePromoImage, savePromoImage } from "@/lib/storage";
 
 async function requireAdmin() {
   const session = await auth();
@@ -47,13 +45,7 @@ export async function uploadPromotionAction(formData: FormData) {
           ? "gif"
           : "jpg";
 
-  const dir = path.join(process.cwd(), "public", "uploads", "promos");
-  await mkdir(dir, { recursive: true });
-  const filename = `${Date.now()}-${randomUUID().slice(0, 8)}.${ext}`;
-  const buffer = Buffer.from(await file.arrayBuffer());
-  await writeFile(path.join(dir, filename), buffer);
-
-  const imageUrl = `/uploads/promos/${filename}`;
+  const imageUrl = await savePromoImage(file, ext);
   const maxOrder = await prisma.promotion.aggregate({ _max: { sortOrder: true } });
   const sortOrder = (maxOrder._max.sortOrder ?? 0) + 1;
 
@@ -106,6 +98,10 @@ export async function deletePromotionAction(formData: FormData) {
   const id = String(formData.get("id") || "");
   if (!id) throw new Error("ID requerido");
 
+  const promo = await prisma.promotion.findUnique({ where: { id } });
+  if (!promo) throw new Error("Promoción no encontrada");
+
   await prisma.promotion.delete({ where: { id } });
+  await deletePromoImage(promo.imageUrl);
   revalidatePromoPages();
 }

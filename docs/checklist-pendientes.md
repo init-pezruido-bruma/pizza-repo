@@ -39,14 +39,14 @@ Estado revisado · 18 ago 2026
 
 | ID | Estado |
 |---|---|
-| **EVE-09** | ✅ Implementado (SQLite + admin `/backend`). Conectar `RESEND_API_KEY` en Vercel para envío real. |
-| **EVE-08** | ✅ Admin `/backend/admin/promociones`: subir, publicar, archivar (historial). Front lee publicadas. |
-| **DB prod** | SQLite es temporal; migrar a Postgres cuando toque deploy durable |
+| **EVE-09** | ✅ Admin `/backend`. Conectar `RESEND_API_KEY` en Vercel para envío real. |
+| **EVE-08** | ✅ Admin `/backend/admin/promociones`: subir, publicar, archivar. En Vercel las fotos van a Blob. |
+| **DB prod** | ✅ Prisma usa PostgreSQL (Neon en Vercel; Docker en local). |
 
 ### Cómo usar el backend local
 
-1. Copiar `.env.example` → `.env` (ya incluye `DATABASE_URL`, `AUTH_SECRET`, admin).
-2. `npx prisma migrate dev` / `npm run db:seed`
+1. Copiar `.env.example` → `.env` (ya incluye `DATABASE_URL`, `DIRECT_URL`, `AUTH_SECRET`, admin).
+2. `npm run db:up` (Postgres local) → `npx prisma migrate deploy` / `npm run db:seed`
 3. Abrir `/backend` → Ir al admin → login con `ADMIN_EMAIL` / `ADMIN_PASSWORD`
 4. Opcional: `RESEND_API_KEY` + remitente verificado en Resend
 
