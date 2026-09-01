@@ -83,7 +83,16 @@ export function SiteFooter() {
               {siteConfig.phone}
             </a>
           </p>
-          <p>WhatsApp: {siteConfig.whatsappDisplay}</p>
+          <p>
+            <a
+              href={`https://wa.me/${siteConfig.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:opacity-80"
+            >
+              WhatsApp: {siteConfig.whatsappDisplay}
+            </a>
+          </p>
           <p>
             <a href={`mailto:${siteConfig.email}`} className="transition hover:opacity-80">
               {siteConfig.email}
