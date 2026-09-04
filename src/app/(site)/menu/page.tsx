@@ -56,6 +56,24 @@ const pizzas = [
     image: "/images/menu/pizza-vegetariana.png",
     cutout: true,
   },
+  {
+    name: "Pizza Tres Carnes",
+    description: "Pepperoni, jamón y carne sobre queso derretido.",
+    image: "/images/menu/pizza-tres-carnes.png",
+    cutout: true,
+  },
+  {
+    name: "Mitad Queso y Pepperoni",
+    description: "Mitad queso, mitad pepperoni.",
+    image: "/images/menu/pizza-mitad-queso-pepperoni.png",
+    cutout: true,
+  },
+  {
+    name: "Pizza Mexicana",
+    description: "Chorizo, cilantro, cebolla y salsa especial.",
+    image: "/images/menu/pizza-mexicana.png",
+    cutout: true,
+  },
 ] as const;
 
 const starters = [
@@ -110,7 +128,7 @@ export default function MenuPage() {
             </h1>
           </Reveal>
 
-          <div className="mt-10 grid gap-8 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <div className="mt-10 grid gap-8 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-6">
             {pizzas.map((item, i) => (
               <Reveal
                 key={item.name}
