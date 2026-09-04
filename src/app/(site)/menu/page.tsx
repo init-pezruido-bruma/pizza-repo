@@ -115,6 +115,59 @@ const sidesRight = [
   },
 ] as const;
 
+const pizzasTop = pizzas.slice(0, 4);
+const pizzasBottom = pizzas.slice(4);
+
+function PizzaCard({
+  item,
+  delay,
+  priority = false,
+  className,
+}: {
+  item: (typeof pizzas)[number];
+  delay: number;
+  priority?: boolean;
+  className?: string;
+}) {
+  return (
+    <Reveal
+      delay={delay}
+      className={`relative flex flex-col items-center text-center ${className ?? ""}`}
+    >
+      <div className="group relative w-full max-w-[220px]">
+        <div
+          className={
+            item.cutout
+              ? "relative mx-auto aspect-square overflow-visible"
+              : "relative mx-auto aspect-square overflow-hidden rounded-full bg-white/10 shadow-[0_14px_32px_rgba(0,0,0,0.28)] ring-2 ring-white/25"
+          }
+        >
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            sizes="220px"
+            quality={90}
+            unoptimized={item.cutout}
+            className={
+              item.cutout
+                ? "img-zoom object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.35)]"
+                : "img-zoom object-cover"
+            }
+            priority={priority}
+          />
+        </div>
+      </div>
+
+      <h2 className="mt-5 font-display text-[clamp(1.35rem,2.4vw,1.75rem)] font-black leading-[1.05] text-brand-yellow">
+        {item.name}
+      </h2>
+      <p className="mt-1.5 max-w-[16rem] text-[0.7rem] font-extrabold uppercase leading-snug tracking-wide text-white/95 sm:text-xs">
+        {item.description}
+      </p>
+    </Reveal>
+  );
+}
 
 export default function MenuPage() {
   return (
@@ -128,46 +181,29 @@ export default function MenuPage() {
             </h1>
           </Reveal>
 
-          <div className="mt-10 grid gap-8 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-6">
-            {pizzas.map((item, i) => (
-              <Reveal
-                key={item.name}
-                delay={i * 60}
-                className="relative flex flex-col items-center text-center"
-              >
-                <div className="group relative w-full max-w-[220px]">
-                  <div
-                    className={
-                      item.cutout
-                        ? "relative mx-auto aspect-square overflow-visible"
-                        : "relative mx-auto aspect-square overflow-hidden rounded-full bg-white/10 shadow-[0_14px_32px_rgba(0,0,0,0.28)] ring-2 ring-white/25"
-                    }
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      sizes="220px"
-                      quality={90}
-                      unoptimized={item.cutout}
-                      className={
-                        item.cutout
-                          ? "img-zoom object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.35)]"
-                          : "img-zoom object-cover"
-                      }
-                      priority={i === 0}
-                    />
-                  </div>
-                </div>
+          <div className="mt-10 space-y-8 sm:mt-12 lg:space-y-6">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+              {pizzasTop.map((item, i) => (
+                <PizzaCard
+                  key={item.name}
+                  item={item}
+                  delay={i * 60}
+                  priority={i === 0}
+                />
+              ))}
+            </div>
 
-                <h2 className="mt-5 font-display text-[clamp(1.35rem,2.4vw,1.75rem)] font-black leading-[1.05] text-brand-yellow">
-                  {item.name}
-                </h2>
-                <p className="mt-1.5 max-w-[16rem] text-[0.7rem] font-extrabold uppercase leading-snug tracking-wide text-white/95 sm:text-xs">
-                  {item.description}
-                </p>
-              </Reveal>
-            ))}
+            {/* Segunda fila: 3 pizzas centradas bajo las 4 de arriba en desktop */}
+            <div className="grid gap-8 sm:grid-cols-2 lg:mx-auto lg:w-3/4 lg:grid-cols-3 lg:gap-6">
+              {pizzasBottom.map((item, i) => (
+                <PizzaCard
+                  key={item.name}
+                  item={item}
+                  delay={(i + 4) * 60}
+                  className="sm:last:col-span-2 sm:last:justify-self-center lg:last:col-span-1 lg:last:justify-self-auto"
+                />
+              ))}
+            </div>
           </div>
 
           <Reveal
