@@ -57,8 +57,8 @@ const pizzas = [
     cutout: true,
   },
   {
-    name: "Pizza Tres Carnes",
-    description: "Pepperoni, jamón y carne sobre queso derretido.",
+    name: "Pizza Epic Meats",
+    description: "Pepperoni, salchicha italiana y jamón.",
     image: "/images/menu/pizza-tres-carnes.png",
     cutout: true,
   },
