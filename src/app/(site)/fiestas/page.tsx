@@ -38,7 +38,7 @@ const reasons = [
   {
     title: "Todo el año",
     description: "Espacios climatizados, lluvia o sol.",
-    image: "/images/fiestas/reason-trampolines.jpg",
+    image: "/images/fiestas/Trampolines.jpeg",
   },
 ] as const;
 
