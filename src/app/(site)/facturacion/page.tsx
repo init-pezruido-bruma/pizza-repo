@@ -57,19 +57,10 @@ export default function FacturacionPage() {
                 <li>
                   Escríbenos a{" "}
                   <a
-                    href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Solicitud de factura")}`}
+                    href={`mailto:facturacion@incrediblepizza.mx?subject=${encodeURIComponent("Solicitud de factura")}`}
                     className="font-semibold text-brand-blue underline-offset-2 hover:underline"
                   >
-                    {siteConfig.email}
-                  </a>{" "}
-                  o por WhatsApp al{" "}
-                  <a
-                    href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Hola, quiero solicitar una factura")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-brand-blue underline-offset-2 hover:underline"
-                  >
-                    {siteConfig.whatsappDisplay}
+                    facturacion@incrediblepizza.mx
                   </a>
                   .
                 </li>
@@ -87,10 +78,6 @@ export default function FacturacionPage() {
                   Solicita tu factura el mismo mes de la compra, dentro del plazo fiscal vigente.
                 </li>
                 <li>Los datos fiscales deben coincidir exactamente con tu Constancia de Situación Fiscal.</li>
-                <li>
-                  Esta página es un placeholder operativo: confirma plazos, correo oficial de
-                  facturación y proceso interno antes de publicar.
-                </li>
               </ul>
             </div>
 

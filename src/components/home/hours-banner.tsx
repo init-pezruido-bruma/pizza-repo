@@ -91,7 +91,7 @@ export function HoursBanner() {
             ref={hoursRef}
             className="flex w-full max-w-md origin-center flex-col gap-3 will-change-transform lg:w-auto lg:max-w-none lg:min-w-[24.5rem] lg:shrink-0"
           >
-            <HourRow label="Lun – Vie" time="11:00 AM – 9:00 PM" />
+            <HourRow label="Lun – Vie" time="12:00 PM – 9:00 PM" />
             <HourRow label="Sáb – Dom" time="11:00 AM – 9:00 PM" />
           </div>
         </div>

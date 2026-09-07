@@ -51,7 +51,7 @@ const packages = [
       "10 Niños mínimo",
       "2 Adultos gratis",
       "Pastel + Buffet ilimitado",
-      "Aguinaldo",
+      "Bolsitas de dulces",
     ],
     badge: "bg-gradient-to-r from-[#f7d24a] to-[#e44f2f]",
     priceClass: "text-[#e2453a]",
@@ -67,7 +67,7 @@ const packages = [
     name: "Fiesta Rosie The Cat",
     price: "$11,999",
     summary: "3 hrs de juego + 3 atracciones + 300 créditos.",
-    features: ["10 Niños mínimo", "2 Adultos gratis", "Aguinaldo + Anfitrión + Piñata"],
+    features: ["10 Niños mínimo", "2 Adultos gratis", "Bolsitas de dulces + Anfitrión + Piñata"],
     badge: "bg-gradient-to-r from-[#f5d84a] to-[#54779f]",
     priceClass: "text-[#3f6aad]",
     mascot: {
@@ -82,7 +82,7 @@ const packages = [
     name: "Fiesta Turbo Tiger",
     price: "$15,999",
     summary: "4 hrs de juego + atracciones ilimitadas + 400 créditos.",
-    features: ["10 Niños mínimo", "5 Adultos gratis", "Aguinaldo + Anfitrión + Piñata"],
+    features: ["10 Niños mínimo", "5 Adultos gratis", "Bolsitas de dulces + Anfitrión + Piñata"],
     badge: "bg-gradient-to-r from-[#cd3c3c] via-[#8d5a8e] to-[#505e9a]",
     priceClass: "text-[#e2453a]",
     mascot: {

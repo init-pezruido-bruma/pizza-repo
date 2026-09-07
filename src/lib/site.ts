@@ -27,7 +27,7 @@ export const siteConfig = {
   mapsQuery:
     "Incredible Pizza, Av. Lázaro Cárdenas 999, Brisas La Punta, 64790 Monterrey, Nuevo León, Mexico",
   hours: {
-    weekdays: "Lunes a viernes: 11:00 AM – 9:00 PM",
+    weekdays: "Lunes a viernes: 12:00 PM – 9:00 PM",
     weekend: "Sábado y domingo: 11:00 AM – 9:00 PM",
   },
   social: {

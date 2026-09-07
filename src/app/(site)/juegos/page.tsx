@@ -65,21 +65,16 @@ const attractions = [
 
 const incredibleGames = [
   {
-    title: "Golden Games (Cranes)",
-    description:
-      "Son todos los juegos que dan premio directo, como nuestras máquinas de garra donde podrás ganar peluches, dulces, accesorios para celular y más.",
-    image: "/images/juegos/cranes.jpg",
-  },
-  {
-    title: "Golden Games (Tokens)",
-    description:
-      "Demuestra tu destreza con las máquinas de monedas y obtén tickets físicos, que podrás canjear en nuestro mostrador de redención.",
-    image: "/images/juegos/tokens.jpg",
-  },
-  {
     title: "Golden Games",
-    description: "En una jugada puedes ganar hasta 1000 tickets.",
+    description:
+      "Pelotas gigantes donde en una jugada puedes ganar hasta 1000 tickets.",
     image: "/images/juegos/golden.jpg",
+  },
+  {
+    title: "Cranes",
+    description:
+      "Máquinas de garra donde podrás ganar peluches, dulces, accesorios para celular y más.",
+    image: "/images/juegos/cranes.jpg",
   },
 ] as const;
 
@@ -231,12 +226,12 @@ export default function JuegosPage() {
             Juegos Increíbles
           </h2>
         </Reveal>
-        <div className="grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="mx-auto grid max-w-3xl gap-10 md:grid-cols-2 md:gap-8">
           {incredibleGames.map((game, i) => (
             <Reveal
               key={game.title}
               delay={i * 80}
-              className="group flex flex-col text-left"
+              className="group flex flex-col text-left md:items-center md:text-center"
             >
               <div className="hover-lift relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[1.5rem] shadow-lg">
                 <Image
@@ -244,7 +239,7 @@ export default function JuegosPage() {
                   alt={game.title}
                   width={800}
                   height={1000}
-                  sizes="(max-width:768px) 100vw, 33vw"
+                  sizes="(max-width:768px) 100vw, 50vw"
                   quality={90}
                   className="img-zoom h-full w-full object-cover"
                 />
@@ -252,7 +247,7 @@ export default function JuegosPage() {
               <h3 className="mt-5 font-display text-[clamp(1.65rem,3.5vw,2.15rem)] font-black leading-[1.05] text-brand-yellow">
                 {game.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/90 sm:text-[0.95rem]">
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/90 sm:text-[0.95rem]">
                 {game.description}
               </p>
             </Reveal>
