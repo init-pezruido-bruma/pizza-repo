@@ -12,6 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/promociones",
     "/contacto",
     "/aviso-de-privacidad",
+    "/terminos",
+    "/facturacion",
   ];
 
   return routes.map((route) => ({
