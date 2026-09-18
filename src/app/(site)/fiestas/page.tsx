@@ -28,17 +28,17 @@ const reasons = [
     title: "Buffet",
     description:
       "Selección de pizzas, barra de ensaladas, hot dogs, platillos especiales y mucho más.",
-    image: "/images/fiestas/reason-buffet.jpg",
+    image: "/images/fiestas/reason-buffet-hd.jpg",
   },
   {
     title: "Escenografía incluida",
     description: "Ambiente listo para celebrar.",
-    image: "/images/fiestas/party-room.jpg",
+    image: "/images/fiestas/reason-party.jpg",
   },
   {
     title: "Todo el año",
     description: "Espacios climatizados, lluvia o sol.",
-    image: "/images/fiestas/Trampolines.jpeg",
+    image: "/images/fiestas/reason-trampolines.jpg",
   },
 ] as const;
 
@@ -183,8 +183,8 @@ export default function FiestasPage() {
                   alt={item.title}
                   width={560}
                   height={560}
-                  sizes="(max-width:1024px) 208px, 224px"
-                  quality={90}
+                  sizes="(max-width:640px) 176px, (max-width:1024px) 208px, 224px"
+                  quality={95}
                   className="img-zoom h-full w-full object-cover"
                 />
               </div>
