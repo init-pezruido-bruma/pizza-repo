@@ -38,7 +38,7 @@ const reasons = [
   {
     title: "Todo el año",
     description: "Espacios climatizados, lluvia o sol.",
-    image: "/images/fiestas/reason-trampolines.jpg",
+    image: "/images/fiestas/reason-indoor-hd.jpg",
   },
 ] as const;
 
@@ -354,10 +354,10 @@ export default function FiestasPage() {
           <Reveal className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-[520px]">
             <div className="group absolute inset-0 overflow-hidden">
               <Image
-                src="/images/fiestas/party-table.jpg"
-                alt="Mesa de fiesta con pizza y cupcakes"
+                src="/images/fiestas/addons-pinata-hd.jpg"
+                alt="Niño golpeando la piñata en fiesta"
                 fill
-                quality={90}
+                quality={95}
                 sizes="(max-width:1024px) 100vw, 50vw"
                 className="img-zoom object-cover object-center"
               />
