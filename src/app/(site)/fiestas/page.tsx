@@ -95,12 +95,14 @@ const packages = [
 ] as const;
 
 const addons = [
-  "Charola botana",
-  "Charola frutas",
-  "Mesa botana",
-  "Bolsitas recuerdo",
-  "Charola dulces",
+  "Charola botanera",
+  "Charola de fiesta",
+  "Rosca de verduras",
+  "Carrito de dulces",
+  "Bolsitas de dulces",
+  "Fuentes de queso, chamoy y chocolate",
   "Pastel",
+  "Papas locas",
 ];
 
 export default function FiestasPage() {
