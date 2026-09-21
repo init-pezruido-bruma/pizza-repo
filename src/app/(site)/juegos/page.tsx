@@ -17,49 +17,49 @@ const attractions = [
     title: "Go Karts",
     description:
       "¡Súper divertidos y llenos de adrenalina! Asegúrate de vivir esta experiencia cuando visites Incredible Pizza.",
-    image: "/images/juegos/gokarts.jpg",
+    image: "/images/juegos/gokarts-hd.jpg",
   },
   {
     title: "Mini Boliche",
     description:
       "¡Súper divertidos y llenos de adrenalina! Asegúrate de vivir esta experiencia cuando visites Incredible Pizza.",
-    image: "/images/juegos/mini-boliche.jpg",
+    image: "/images/juegos/mini-boliche-hd.jpg",
   },
   {
     title: "Tagadá",
     description:
       "¡Disfruta de una increíble experiencia! ¿Te gusta desafiar la fuerza centrífuga? Tagadá te ofrece momentos de gran diversión en grupo.",
-    image: "/images/juegos/tagada.jpg",
+    image: "/images/juegos/tagada-hd.jpg",
   },
   {
     title: "Mini Golf",
     description:
       "Juega en nuestro campo de mini golf y disfruta de una gran cantidad de diversión. ¡La meta!… ¡Lograr un hoyo en uno!",
-    image: "/images/juegos/mini-golf.jpg",
+    image: "/images/juegos/mini-golf-hd.jpg",
   },
   {
     title: "Resbaladeros Gigantes",
     description:
       "Sube a nuestros resbaladeros gigantes ¡No importa qué edad tengas, en Incredible Pizza nos divertimos todos!",
-    image: "/images/juegos/slides.jpg",
+    image: "/images/juegos/slides-hd.jpg",
   },
   {
     title: "Bumpers Cars",
     description:
       "Disfruta de la música y el espectáculo de luces, da giros incontrolables y asegúrate de abrocharte el cinturón.",
-    image: "/images/juegos/bumpers.jpg",
+    image: "/images/juegos/bumpers-hd.jpg",
   },
   {
     title: "Laser Tag",
     description:
       "Demuestra tus habilidades y estrategias, reúne a tus amigos y pasen una tarde llena de acción.",
-    image: "/images/juegos/laser-tag.jpg",
+    image: "/images/juegos/laser-tag-hd.jpg",
   },
   {
     title: "Lost in Space",
     description:
       "Vuela al espacio con esta nueva atracción. Da vueltas para encontrar el camino al planeta Tierra. ¡Crea momentos increíbles!",
-    image: "/images/juegos/lost-in-space.jpg",
+    image: "/images/juegos/lost-in-space-hd.jpg",
   },
 ] as const;
 
@@ -149,15 +149,15 @@ export default function JuegosPage() {
                   delay={i * 50}
                   className="group hover-lift flex flex-col overflow-hidden rounded-[1.35rem] bg-white shadow-[0_10px_24px_rgba(35,31,32,0.14)]"
                 >
-                  <div className="relative aspect-[5/4] overflow-hidden">
+                  <div className="relative aspect-[16/9] overflow-hidden bg-brand-ink/5">
                     <Image
                       src={item.image}
                       alt={item.title}
                       width={800}
-                      height={640}
+                      height={450}
                       sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
-                      quality={90}
-                      className="img-zoom h-full w-full object-cover"
+                      quality={95}
+                      className="img-zoom h-full w-full object-cover object-center"
                     />
                   </div>
                   <div className="flex flex-1 flex-col gap-2 px-4 pb-4 pt-3 sm:px-4 sm:pb-5 sm:pt-3.5">
@@ -203,7 +203,7 @@ export default function JuegosPage() {
           <div className="pointer-events-none absolute bottom-0 left-1/2 z-40 w-[min(34rem,94vw)] -translate-x-1/2 translate-y-[28%] sm:w-[min(40rem,80vw)] sm:translate-y-[30%] lg:w-[44rem] lg:translate-y-[32%] xl:w-[48rem]">
             <Reveal>
               <Image
-                src="/images/juegos/gokart-sin-fondo.png"
+                src="/images/juegos/gokart-ipc.png"
                 alt="Mamá e hijo en go-kart"
                 width={838}
                 height={502}
