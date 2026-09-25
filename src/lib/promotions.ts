@@ -2,23 +2,23 @@ import { prisma } from "@/lib/db";
 
 export const FALLBACK_PROMOS = [
   {
-    src: "/images/promociones/promo-fiestas-septiembre.jpg",
+    src: "/images/promociones/promo-fiestas-septiembre-v2.jpg",
     alt: "Promo fiestas Septiembre — 20% de descuento",
   },
   {
-    src: "/images/promociones/visitas-escolares.jpg",
+    src: "/images/promociones/visitas-escolares-v2.jpg",
     alt: "Visitas escolares — beneficio especial",
   },
   {
-    src: "/images/promociones/rally-corporativo.jpg",
+    src: "/images/promociones/rally-corporativo-v2.jpg",
     alt: "Rally Corporativo desde $699 por persona",
   },
   {
-    src: "/images/promociones/buffet-2x1.jpg",
+    src: "/images/promociones/buffet-2x1-v2.jpg",
     alt: "Buffet 2x1 — promoción de temporada",
   },
   {
-    src: "/images/promociones/fiesta-mexicana.jpg",
+    src: "/images/promociones/fiesta-mexicana-v2.jpg",
     alt: "Fiesta Mexicana Riley — precio especial de septiembre",
   },
 ] as const;
