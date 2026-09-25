@@ -29,7 +29,7 @@ export default async function PromocionesPage() {
         </Reveal>
 
         <Reveal delay={80} className="mt-8 sm:mt-10">
-          <GalleryCarousel items={promos} showHeader={false} />
+          <GalleryCarousel items={promos} showHeader={false} variant="promo" />
         </Reveal>
 
         <Reveal delay={120} className="mt-8 flex justify-center sm:mt-10">

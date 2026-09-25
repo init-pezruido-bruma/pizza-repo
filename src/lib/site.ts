@@ -36,6 +36,13 @@ export const siteConfig = {
     tiktok: "https://www.tiktok.com/@ipcmty",
   },
   storeUrl: "https://tiendaenlinea.incrediblepizza.mx/app",
+  /** Menú To Go — PDF (impresión) + JPG (vista rápida / compartir) */
+  menuDownloads: {
+    pdf: "/downloads/menu-to-go-2026.pdf",
+    pdfFilename: "Menu-To-Go-Incredible-Pizza-2026.pdf",
+    image: "/downloads/menu-to-go-2026.jpg",
+    imageFilename: "Menu-To-Go-Incredible-Pizza-2026.jpg",
+  },
   /** Links directos de delivery — tiendas Incredible Pizza */
   delivery: {
     uber: "https://www.ubereats.com/mx-en/store/incredible-pizza/YXaIjIw0XKOXHaWi2WqvPA?diningMode=DELIVERY",

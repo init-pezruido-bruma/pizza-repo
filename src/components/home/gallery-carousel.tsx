@@ -15,6 +15,11 @@ type GalleryCarouselProps = {
   title?: string;
   /** When false, only the carousel stage renders (no eyebrow/title row). */
   showHeader?: boolean;
+  /**
+   * `promo` — portrait flyers (3:4 / 9:16), full image via object-contain.
+   * `photo` — 4:5 cover crop for lifestyle photos.
+   */
+  variant?: "promo" | "photo";
 };
 
 export function GalleryCarousel({
@@ -22,11 +27,13 @@ export function GalleryCarousel({
   eyebrow = "Momentos",
   title = "Galería",
   showHeader = true,
+  variant = "promo",
 }: GalleryCarouselProps) {
   const count = items.length;
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const isPromo = variant === "promo";
 
   useEffect(() => {
     if (count <= 1 || paused) return;
@@ -104,8 +111,20 @@ export function GalleryCarousel({
           aria-hidden
         />
 
-        <div className="relative mx-auto flex h-[340px] items-center justify-center sm:h-[400px] lg:h-[460px]">
-          <div className="absolute inset-x-0 bottom-10 top-10 flex items-center justify-center sm:bottom-12 sm:top-12 lg:bottom-14 lg:top-14 [transform-style:preserve-3d]">
+        <div
+          className={cn(
+            "relative mx-auto flex items-center justify-center",
+            isPromo ? "h-[460px] sm:h-[540px] lg:h-[600px]" : "h-[340px] sm:h-[400px] lg:h-[460px]",
+          )}
+        >
+          <div
+            className={cn(
+              "absolute inset-x-0 flex items-center justify-center [transform-style:preserve-3d]",
+              isPromo
+                ? "bottom-5 top-5 sm:bottom-6 sm:top-6"
+                : "bottom-10 top-10 sm:bottom-12 sm:top-12 lg:bottom-14 lg:top-14",
+            )}
+          >
             {offsets.map((offset) => {
               const index = (active + offset + count * 3) % count;
               const item = items[index];
@@ -124,7 +143,10 @@ export function GalleryCarousel({
                     setActive(index);
                   }}
                   className={cn(
-                    "absolute left-1/2 top-1/2 m-0 w-[56%] max-w-[250px] appearance-none border-0 bg-transparent p-0 sm:w-[36%] sm:max-w-[290px] lg:max-w-[330px]",
+                    "absolute left-1/2 top-1/2 m-0 appearance-none border-0 bg-transparent p-0",
+                    isPromo
+                      ? "w-[38%] max-w-[180px] sm:w-[24%] sm:max-w-[210px] lg:max-w-[230px]"
+                      : "w-[56%] max-w-[250px] sm:w-[36%] sm:max-w-[290px] lg:max-w-[330px]",
                     "transition-[transform,opacity,filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
                     isActive ? "z-30 cursor-default" : "z-20 cursor-pointer",
                     abs === 2 && "pointer-events-none sm:pointer-events-auto",
@@ -132,10 +154,10 @@ export function GalleryCarousel({
                   style={{
                     transform: [
                       "translate(-50%, -50%)",
-                      `translateX(${offset * (abs === 2 ? 62 : 58)}%)`,
+                      `translateX(${offset * (abs === 2 ? 78 : 74)}%)`,
                       `translateZ(${isActive ? 24 : abs === 1 ? -90 : -170}px)`,
-                      `rotateY(${offset * -16}deg)`,
-                      `scale(${isActive ? 1 : abs === 1 ? 0.82 : 0.68})`,
+                      `rotateY(${offset * -12}deg)`,
+                      `scale(${isActive ? 1 : abs === 1 ? 0.86 : 0.72})`,
                     ].join(" "),
                     opacity: abs === 2 ? 0.35 : abs === 1 ? 0.72 : 1,
                     filter: isActive ? "none" : "saturate(0.85) brightness(0.95)",
@@ -143,7 +165,10 @@ export function GalleryCarousel({
                 >
                   <div
                     className={cn(
-                      "relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-[#fff8e0] transition duration-500 sm:rounded-[1.35rem]",
+                      "relative w-full overflow-hidden transition duration-500",
+                      isPromo
+                        ? "aspect-[9/16] rounded-2xl bg-transparent sm:rounded-[1.25rem]"
+                        : "aspect-[4/5] rounded-2xl bg-[#fff8e0] sm:rounded-[1.35rem]",
                       isActive
                         ? "shadow-[0_18px_40px_rgba(35,31,32,0.28)] ring-2 ring-white/90"
                         : "shadow-[0_10px_24px_rgba(35,31,32,0.18)] ring-1 ring-white/40",
@@ -153,9 +178,11 @@ export function GalleryCarousel({
                       src={item.src}
                       alt={item.alt}
                       fill
-                      sizes={isActive ? "(max-width:640px) 70vw, 340px" : "220px"}
-                      quality={90}
-                      className="object-cover object-center"
+                      sizes={isActive ? "(max-width:640px) 45vw, 240px" : "180px"}
+                      quality={92}
+                      className={cn(
+                        isPromo ? "object-contain object-center" : "object-cover object-center",
+                      )}
                       draggable={false}
                       priority={isActive}
                     />

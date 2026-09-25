@@ -125,9 +125,9 @@ export default function JuegosPage() {
       </section>
 
       {/* Atracciones — yellow→orange band + home-style angled bottom */}
-      <section className="relative z-20 overflow-x-clip bg-white">
+      <section className="relative z-20 bg-white">
         <div
-          className="relative z-20 w-full"
+          className="relative z-20 w-full overflow-x-clip"
           style={{
             paddingBottom: "clamp(3.5rem, 6vw, 5.5rem)",
             background:
@@ -138,7 +138,7 @@ export default function JuegosPage() {
         >
           <div className="mx-auto max-w-6xl px-5 pb-10 pt-14 sm:px-8 sm:pb-12 sm:pt-16 lg:px-10 lg:pb-14 lg:pt-20">
             <Reveal>
-              <h2 className="mb-10 text-center font-display text-[clamp(4rem,12vw,6.5rem)] font-black leading-[0.9] text-white drop-shadow-[0_2px_0_rgba(35,31,32,0.12)] sm:mb-12">
+              <h2 className="mb-10 text-center font-display text-[clamp(2.75rem,10vw,6.5rem)] font-black leading-[0.9] text-white drop-shadow-[0_2px_0_rgba(35,31,32,0.12)] sm:mb-12">
                 Atracciones
               </h2>
             </Reveal>
@@ -177,7 +177,7 @@ export default function JuegosPage() {
         <div className="relative z-10 grid lg:grid-cols-2 lg:items-stretch">
           <Reveal className="relative z-20 flex flex-col justify-center px-5 pb-28 pt-14 sm:px-8 sm:pb-32 sm:pt-16 lg:px-12 lg:pb-24 lg:pt-12 xl:px-16">
             <div className="max-w-md">
-              <h2 className="font-display text-[clamp(3rem,9vw,4.75rem)] font-black leading-[0.9] text-[#2b5899]">
+              <h2 className="font-display text-[clamp(2.75rem,8vw,4.75rem)] font-black leading-[0.9] text-[#2b5899]">
                 Videojuegos
               </h2>
               <p className="mt-4 text-base leading-relaxed text-brand-ink/85 sm:text-lg">
@@ -199,15 +199,15 @@ export default function JuegosPage() {
             />
           </Reveal>
 
-          {/* Cutout straddles Videojuegos → Juegos Increíbles (centered) */}
-          <div className="pointer-events-none absolute bottom-0 left-1/2 z-40 w-[min(34rem,94vw)] -translate-x-1/2 translate-y-[28%] sm:w-[min(40rem,80vw)] sm:translate-y-[30%] lg:w-[44rem] lg:translate-y-[32%] xl:w-[48rem]">
+          {/* Cutout straddles Videojuegos → Juegos Increíbles (centered, fluid) */}
+          <div className="pointer-events-none absolute bottom-0 left-1/2 z-40 w-[min(36rem,88vw)] -translate-x-1/2 translate-y-[26%] sm:w-[min(40rem,72vw)] sm:translate-y-[28%] lg:w-[min(44rem,46vw)] lg:translate-y-[30%]">
             <Reveal>
               <Image
                 src="/images/juegos/gokart-ipc.png"
                 alt="Mamá e hijo en go-kart"
                 width={838}
                 height={502}
-                sizes="(max-width:1024px) 94vw, 768px"
+                sizes="(max-width:1024px) 88vw, 46vw"
                 unoptimized
                 className="float-soft h-auto w-full object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.35)]"
               />
@@ -217,12 +217,12 @@ export default function JuegosPage() {
       </section>
 
       <PageSection
-        className="relative z-10 bg-gradient-to-b from-[#6b2d5c] via-[#3d3f8f] to-[#2b5899] pb-16 pt-40 text-white sm:pb-24 sm:pt-48 lg:pt-52"
-        innerClassName="max-w-6xl"
+        className="relative z-10 bg-gradient-to-b from-[#6b2d5c] via-[#3d3f8f] to-[#2b5899] pb-16 pt-[clamp(9rem,22vw,13.5rem)] text-white sm:pb-24"
+        innerClassName="@container max-w-6xl"
         reveal={false}
       >
         <Reveal>
-          <h2 className="mb-10 text-center font-display text-[clamp(2.75rem,8vw,4.75rem)] font-black leading-[0.9] text-white sm:mb-14">
+          <h2 className="mb-10 whitespace-nowrap text-center font-display text-[clamp(2.35rem,12cqi,4.5rem)] font-black leading-[0.9] text-white sm:mb-14">
             Juegos Increíbles
           </h2>
         </Reveal>

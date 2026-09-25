@@ -365,16 +365,16 @@ export default function FiestasPage() {
               />
             </div>
           </Reveal>
-          <Reveal delay={120} className="flex flex-col justify-center px-6 py-12 sm:px-10 sm:py-16 lg:px-14 lg:py-20">
-            <h2 className="max-w-[14ch] font-display text-[clamp(2.75rem,6.5vw,4.75rem)] font-black leading-[0.92] text-[#3f6eab] sm:-rotate-1">
+          <Reveal delay={120} className="@container flex min-w-0 flex-col justify-center px-6 py-12 sm:px-10 sm:py-16 lg:px-14 lg:py-20">
+            <h2 className="max-w-[16ch] font-display text-[clamp(2.35rem,11cqi,4.5rem)] font-black leading-[0.92] text-[#3f6eab] sm:-rotate-1">
               Haz tu fiesta aún más especial
             </h2>
             <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.12em] text-[#3f6eab] sm:text-base">
               Agrega charolas, pasteles, dulces y más
             </p>
-            <ul className="mt-10 grid max-w-lg grid-cols-2 gap-x-8 gap-y-0 text-sm font-bold text-brand-ink sm:text-base">
+            <ul className="mt-10 grid w-full max-w-lg grid-cols-2 gap-x-6 gap-y-0 text-sm font-bold text-brand-ink sm:gap-x-8 sm:text-base">
               {addons.map((item, i) => (
-                <Reveal as="li" key={item} delay={160 + i * 40} className="border-b border-brand-ink/15 py-3.5">
+                <Reveal as="li" key={item} delay={160 + i * 40} className="min-w-0 border-b border-brand-ink/15 py-3.5">
                   {item}
                 </Reveal>
               ))}
@@ -392,8 +392,8 @@ export default function FiestasPage() {
         innerClassName="max-w-6xl"
       >
         <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-center md:gap-14">
-          <Reveal>
-            <h2 className="max-w-[10ch] -translate-y-3 font-display text-[clamp(2.75rem,7vw,4.5rem)] font-black leading-[0.95] -rotate-6 drop-shadow-[0_2px_0_rgba(35,31,32,0.12)] sm:-translate-y-5 sm:-rotate-[10deg]">
+          <Reveal className="@container min-w-0">
+            <h2 className="max-w-[10ch] -translate-y-3 font-display text-[clamp(2.35rem,18cqi,4.5rem)] font-black leading-[0.95] -rotate-6 drop-shadow-[0_2px_0_rgba(35,31,32,0.12)] sm:-translate-y-5 sm:-rotate-[10deg]">
               ¿Listo para reservar?
             </h2>
           </Reveal>

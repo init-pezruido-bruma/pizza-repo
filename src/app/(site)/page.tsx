@@ -74,11 +74,11 @@ export default function HomePage() {
           </div>
 
           <div className="relative z-10 flex min-h-[36rem] flex-col items-center justify-center bg-transparent px-6 pb-14 pt-28 sm:min-h-[40rem] sm:px-10 sm:pb-16 sm:pt-32 lg:min-h-[48rem] lg:bg-gradient-to-b lg:from-[#6a3f5c] lg:via-[#3f508f] lg:to-[#2b5899] lg:px-12 lg:pb-20 lg:pt-[13.5rem] xl:min-h-[53rem] xl:px-16 xl:pt-[14.5rem]">
-            <div className="w-full max-w-xl lg:max-w-2xl">
+            <div className="@container w-full min-w-0 max-w-xl lg:max-w-2xl">
               <p className="hero-copy-in text-xs font-extrabold uppercase tracking-[0.2em] text-white sm:text-sm">
                 Conoce nuestros
               </p>
-              <h1 className="hero-copy-in hero-copy-in-delay-1 mt-2 whitespace-nowrap font-display text-[clamp(2.85rem,11vw,6.75rem)] font-black leading-[0.9] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]">
+              <h1 className="hero-copy-in hero-copy-in-delay-1 mt-2 max-w-full whitespace-nowrap font-display text-[clamp(2.5rem,15cqi,6.25rem)] font-black leading-[0.9] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]">
                 Juegos Increíbles
               </h1>
               <p className="hero-copy-in hero-copy-in-delay-2 mt-5 max-w-[36ch] text-base leading-relaxed text-white sm:text-lg">
@@ -86,7 +86,7 @@ export default function HomePage() {
                 tickets electrónicos. Lo mejor es que puedes cambiar tus tickets por grandiosos
                 premios en nuestro mostrador de redención.
               </p>
-              <div className="hero-copy-in hero-copy-in-delay-3 mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="hero-copy-in hero-copy-in-delay-3 mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Button
                   asChild
                   variant="secondary"
@@ -105,6 +105,19 @@ export default function HomePage() {
                     Compra aquí
                   </a>
                 </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="min-h-12 w-full border-2 border-white px-8 text-base text-white sm:w-auto"
+                >
+                  <a
+                    href={siteConfig.menuDownloads.pdf}
+                    download={siteConfig.menuDownloads.pdfFilename}
+                  >
+                    Descargar menú
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
@@ -119,11 +132,11 @@ export default function HomePage() {
 
         <div className="grid lg:grid-cols-2 lg:items-stretch">
           <Reveal className="order-2 flex flex-col items-start justify-center space-y-6 bg-white px-5 pb-10 pt-10 sm:px-8 sm:pb-12 lg:order-1 lg:min-h-[36rem] lg:px-12 lg:pb-14 lg:pt-12 xl:px-16">
-            <div>
+            <div className="@container w-full min-w-0 max-w-xl">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#2b5899] sm:text-sm">
                 Celebra con nosotros tu
               </p>
-              <h2 className="mt-2 font-display text-[clamp(3.25rem,9vw,5.75rem)] font-black leading-[0.9] text-[#2b5899]">
+              <h2 className="mt-2 font-display text-[clamp(2.75rem,28cqi,5.75rem)] font-black leading-[0.9] text-[#2b5899]">
                 Fiesta
                 <br />
                 Increíble
@@ -142,14 +155,14 @@ export default function HomePage() {
           <Reveal className="relative order-1 z-10 -mt-[clamp(3.75rem,7vw,5.5rem)] min-h-[340px] overflow-hidden sm:min-h-[420px] lg:order-2 lg:-mt-[clamp(3.5rem,6vw,5.5rem)] lg:min-h-[36rem] xl:min-h-[40rem]">
             <div className="group absolute inset-0">
               <HeroParallaxImage
-                src="/images/home/fiesta-increible.jpg"
-                alt="Niño disfrutando su fiesta en Incredible Pizza"
-                width={3592}
-                height={3516}
+                src="/images/fiestas/addons-pinata-hd.jpg"
+                alt="Niño golpeando la piñata en fiesta"
+                width={2400}
+                height={1600}
                 sizes="(max-width:1024px) 100vw, 50vw"
                 priority={false}
                 quality={90}
-                objectPosition="center 22%"
+                objectPosition="center 30%"
                 intensity={1.35}
               />
             </div>
@@ -195,14 +208,14 @@ export default function HomePage() {
         <div className="relative min-h-[320px] sm:min-h-[400px] lg:min-h-[480px]">
           <div className="group absolute inset-0">
             <Image
-              src="/images/home/rapido-y-furioso.jpg"
+              src="/images/home/rapido-y-furioso-gokart.jpg"
               alt="Madre e hijo en go-kart Rápido y Furioso"
-              width={3840}
-              height={1680}
+              width={1264}
+              height={842}
               sizes="100vw"
               quality={90}
               priority={false}
-              className="img-zoom absolute inset-0 h-full w-full object-cover object-[center_28%]"
+              className="img-zoom absolute inset-0 h-full w-full object-cover object-[72%_45%] sm:object-[75%_40%]"
             />
           </div>
           {/* Oscurece solo la zona del copy; la foto del kart queda limpia */}

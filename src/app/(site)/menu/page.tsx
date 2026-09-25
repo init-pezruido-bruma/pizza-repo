@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { siteConfig } from "@/lib/site";
 
@@ -179,6 +180,37 @@ export default function MenuPage() {
             <h1 className="hero-copy-in text-center font-display text-[clamp(3.5rem,10vw,5.5rem)] font-black leading-[0.9] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
               Pizzas
             </h1>
+            <p className="hero-copy-in hero-copy-in-delay-1 mx-auto mt-3 max-w-lg text-center text-sm font-semibold leading-relaxed text-white/90 sm:text-base">
+              Descarga el menú To Go completo para ver precios, combos y promociones.
+            </p>
+            <div className="hero-copy-in hero-copy-in-delay-2 mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+              <Button
+                asChild
+                variant="secondary"
+                size="lg"
+                className="min-h-12 w-full border-2 border-black px-8 text-base text-black sm:w-auto"
+              >
+                <a
+                  href={siteConfig.menuDownloads.pdf}
+                  download={siteConfig.menuDownloads.pdfFilename}
+                >
+                  Descargar PDF
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="min-h-12 w-full border-2 border-white px-8 text-base text-white sm:w-auto"
+              >
+                <a
+                  href={siteConfig.menuDownloads.image}
+                  download={siteConfig.menuDownloads.imageFilename}
+                >
+                  Descargar JPG
+                </a>
+              </Button>
+            </div>
           </Reveal>
 
           <div className="mt-10 space-y-8 sm:mt-12 lg:space-y-6">
