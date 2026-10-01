@@ -5,10 +5,13 @@ import { PageSection } from "@/components/layout/page-section";
 export const metadata: Metadata = {
   title: "Términos y condiciones",
   description:
-    "Términos y Condiciones de Incredible Pizza: uso del sitio, compras en línea, sucursal e instalaciones.",
+    "Términos y Condiciones de Incredible Pizza: uso del sitio, compras en línea, sucursal, promociones de octubre 2026 e instalaciones.",
   alternates: { canonical: "/terminos" },
   robots: { index: false, follow: true },
 };
+
+const privacyLinkClass =
+  "font-semibold text-brand-blue underline-offset-2 hover:underline";
 
 export default function TerminosPage() {
   return (
@@ -24,6 +27,10 @@ export default function TerminosPage() {
         <h1 className="mt-3 font-display text-[clamp(2.25rem,6vw,3.5rem)] font-black leading-[0.95] text-brand-ink">
           Términos y condiciones
         </h1>
+        <p className="mt-4 text-sm leading-relaxed text-brand-ink/70 sm:text-base">
+          Uso del sitio web, ventas en línea y en sucursal, y uso de las instalaciones ·
+          incrediblepizza.mx · Incredible Pizza / Incredible Food and Fun · Monterrey, Nuevo León
+        </p>
 
         <div className="mt-8 space-y-4 text-base leading-relaxed text-brand-ink/80">
           <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">
@@ -50,8 +57,9 @@ export default function TerminosPage() {
           </p>
           <p>
             Los términos y condiciones particulares de cada promoción, paquete o servicio publicados
-            en el Sitio forman parte integrante de los presentes Términos y Condiciones y se tienen
-            por incorporados por su sola referencia.
+            en el Sitio —incluidos los Términos y Condiciones de Fiestas y Eventos— forman parte
+            integrante de los presentes Términos y Condiciones y se tienen por incorporados por su
+            sola referencia.
           </p>
 
           <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">
@@ -75,11 +83,13 @@ export default function TerminosPage() {
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
             3.1 Requisitos para canjear su compra
           </h3>
-          <p>Presentar su código QR.</p>
-          <p>
-            Presentar una identificación oficial vigente del comprador (Credencial de Elector, Cédula
-            Profesional o Pasaporte).
-          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>Presentar su código QR.</li>
+            <li>
+              Presentar una identificación oficial vigente del comprador (Credencial de Elector,
+              Cédula Profesional o Pasaporte).
+            </li>
+          </ul>
           <p>
             El canje se realiza en una sola exhibición y las entradas adquiridas en línea deberán
             utilizarse en una sola transacción. Una vez aceptada la compra, no habrá cambios,
@@ -89,23 +99,25 @@ export default function TerminosPage() {
             horario de cierre.
           </p>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">3.2 Boletos en línea</h3>
-          <p>El boleto es personal e intransferible y podrá usarse una sola vez.</p>
-          <p>
-            No aplican cancelaciones, reembolsos ni intercambios; no será reemplazado en caso de
-            pérdida, robo, vencimiento, maltrato o falta de uso.
-          </p>
-          <p>
-            El boleto no deberá ser duplicado ni revendido. En caso de duplicación, será cancelado
-            sin reembolso y no tendrá validez.
-          </p>
-          <p>
-            La compra anticipada no implica acceso preferencial a las instalaciones, aunque agiliza
-            el proceso de ingreso.
-          </p>
-          <p>
-            No es válido para eventos privados y no puede combinarse con otras promociones o
-            descuentos.
-          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>El boleto es personal e intransferible y podrá usarse una sola vez.</li>
+            <li>
+              No aplican cancelaciones, reembolsos ni intercambios; no será reemplazado en caso de
+              pérdida, robo, vencimiento, maltrato o falta de uso.
+            </li>
+            <li>
+              El boleto no deberá ser duplicado ni revendido. En caso de duplicación, será cancelado
+              sin reembolso y no tendrá validez.
+            </li>
+            <li>
+              La compra anticipada no implica acceso preferencial a las instalaciones, aunque
+              agiliza el proceso de ingreso.
+            </li>
+            <li>
+              No es válido para eventos privados y no puede combinarse con otras promociones o
+              descuentos.
+            </li>
+          </ul>
 
           <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">
             4. Ventas en Sucursal (Taquilla) y Política de No Devoluciones
@@ -114,16 +126,19 @@ export default function TerminosPage() {
             Las compras realizadas en taquilla y demás puntos de venta dentro del Establecimiento se
             rigen por los presentes Términos y Condiciones y por los precios, promociones y
             condiciones publicados en sucursal al momento de la compra. Todos los precios incluyen
-            IVA. Verifique su compra (productos, paquetes, horas de juego y créditos) antes de pagar;
-            el ticket de compra es el comprobante de los servicios contratados.
+            IVA. Verifique su compra (productos, paquetes, horas Platino videojuegos y créditos)
+            antes de pagar; el ticket de compra es el comprobante de los servicios contratados.
           </p>
           <p>
             <strong className="font-extrabold text-brand-ink">POLÍTICA DE NO DEVOLUCIONES:</strong>{" "}
             una vez realizado el pago e ingresado al inmueble, o iniciado el consumo o uso de
-            cualquier servicio (buffet, alimentos, tarjetas de juego, créditos, tiempo Platino,
-            atracciones o paquetes), NO se realizan cambios, cancelaciones, devoluciones ni
-            reembolsos, en efectivo ni en cualquier otra forma, salvo en los casos en que la
-            legislación aplicable disponga expresamente lo contrario.
+            cualquier servicio (buffet, alimentos, tarjetas de juego, créditos, tiempo Platino
+            videojuegos, atracciones o paquetes),{" "}
+            <strong className="font-extrabold text-brand-ink">
+              NO se realizan cambios, cancelaciones, devoluciones ni reembolsos
+            </strong>
+            , en efectivo ni en cualquier otra forma, salvo en los casos en que la legislación
+            aplicable disponga expresamente lo contrario.
           </p>
           <p>
             Cualquier inconformidad con la calidad de los alimentos o servicios deberá reportarse en
@@ -139,10 +154,10 @@ export default function TerminosPage() {
           <p>
             Existen dos tipos de tarjeta de juego: la Tarjeta de Créditos (saldo en créditos con
             acceso a videojuegos, máquinas de premios y atracciones; hay juegos desde 25 y hasta 100
-            créditos) y la Tarjeta Platino (tiempo de juego por horas, conforme a la sección 6). La
-            tarjeta física tiene un costo de $30.00 M.N., pagadero en taquillas, y no está incluido
-            en los paquetes ni en las compras en línea, salvo que se indique expresamente lo
-            contrario.
+            créditos) y la Tarjeta Platino (tiempo Platino videojuegos por horas, conforme a la
+            sección 6). La tarjeta física tiene un costo de $30.00 M.N., pagadero en taquillas, y no
+            está incluido en los paquetes ni en las compras en línea, salvo que se indique
+            expresamente lo contrario.
           </p>
           <p>
             Programa “Trae tu Tarjeta”: el cliente que se presente con su tarjeta Incredible Pizza de
@@ -164,46 +179,54 @@ export default function TerminosPage() {
             son válidos exclusivamente el día de su compra y activación. Al adquirir cualquier
             paquete, el cliente acepta los términos aquí descritos.
           </p>
-          <p>
-            Rusty’s Essential ($599.00): un (1) acceso al bufet con bebida ilimitada, una (1) hora de
-            tiempo de juego, tres (3) entradas a atracciones y 400 créditos.
-          </p>
-          <p>
-            Rusty’s Plus ($799.00): un (1) acceso al bufet con bebida ilimitada, dos (2) horas de
-            tiempo de juego, cuatro (4) entradas a atracciones y 600 créditos.
-          </p>
-          <p>
-            Rusty’s All Access Pass ($1,100.00): acceso al bufet con bebida ilimitada durante toda la
-            estancia, tiempo de juego ilimitado, acceso ilimitado a atracciones y 800 créditos.
-          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              Rusty’s Essential ($599.00): un (1) acceso al bufet con bebida ilimitada, una (1) hora
+              Platino videojuegos, tres (3) entradas a atracciones y 400 créditos.
+            </li>
+            <li>
+              Rusty’s Plus ($799.00): un (1) acceso al bufet con bebida ilimitada, dos (2) horas
+              Platino videojuegos, cuatro (4) entradas a atracciones y 600 créditos.
+            </li>
+            <li>
+              Rusty’s All Access Pass ($1,100.00): acceso al bufet con bebida ilimitada durante toda
+              la estancia, tiempo Platino videojuegos ilimitado, acceso ilimitado a atracciones y 800
+              créditos.
+            </li>
+          </ul>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
-            6.1 Reglas del tiempo de juego (1 hora / 2 horas / ilimitado)
+            6.1 Reglas del tiempo Platino videojuegos (1 hora / 2 horas / ilimitado)
           </h3>
-          <p>
-            Inclusiones: el tiempo aplica únicamente para el uso de videojuegos, máquinas de tickets
-            y el acceso al área de resbaladeros.
-          </p>
-          <p>
-            Exclusiones: el tiempo de juego NO permite el acceso a las atracciones principales
-            (sección 6.2) ni a máquinas de la línea Marvel, máquinas de garra o de premio directo.
-          </p>
-          <p>
-            Activación: el conteo inicia automáticamente con la primera lectura (“swipe”) de la
-            tarjeta en cualquier máquina válida; corre de manera consecutiva y no puede pausarse.
-          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              Inclusiones: el tiempo Platino videojuegos aplica únicamente para el uso de
+              videojuegos, máquinas de tickets y el acceso al área de resbaladeros.
+            </li>
+            <li>
+              Exclusiones: el tiempo Platino videojuegos NO permite el acceso a las atracciones
+              principales (sección 6.2) ni a máquinas de la línea Marvel, máquinas de garra o de
+              premio directo.
+            </li>
+            <li>
+              Activación: el conteo inicia automáticamente con la primera lectura (“swipe”) de la
+              tarjeta en cualquier máquina válida; corre de manera consecutiva y no puede pausarse.
+            </li>
+          </ul>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
             6.2 Atracciones y créditos
           </h3>
-          <p>Atracciones: Laser Tag, Go Karts, Tagada, Lost in Space, Bumper Cars y Golfito.</p>
-          <p>
-            En los paquetes Essential y Plus, agotadas las entradas incluidas, el cliente podrá usar
-            sus créditos para acceder nuevamente o realizar una recarga independiente.
-          </p>
-          <p>
-            Los créditos del paquete son la única moneda válida (dentro del paquete) para operar
-            máquinas de premios, garras, peluches y la zona Marvel, y también pueden utilizarse para
-            pagar entradas adicionales a atracciones.
-          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>Atracciones: Laser Tag, Go Karts, Tagada, Lost in Space, Bumper Cars y Golfito.</li>
+            <li>
+              En los paquetes Essential y Plus, agotadas las entradas incluidas, el cliente podrá
+              usar sus créditos para acceder nuevamente o realizar una recarga independiente.
+            </li>
+            <li>
+              Los créditos del paquete son la única moneda válida (dentro del paquete) para operar
+              máquinas de premios, garras, peluches y la zona Marvel, y también pueden utilizarse
+              para pagar entradas adicionales a atracciones.
+            </li>
+          </ul>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
             6.3 Bufet y tarifas individuales
           </h3>
@@ -212,31 +235,35 @@ export default function TerminosPage() {
             postres y estaciones de bebidas. Todos los alimentos y bebidas deben consumirse dentro de
             las áreas designadas; no se permite la salida de alimentos del establecimiento.
           </p>
-          <p>
-            Adulto: $449.00 · Niño (de 0.95 m a 1.50 m): $339.00 · Adulto Mayor (con identificación):
-            $339.00.
-          </p>
-          <p>
-            Niñas y niños menores de 0.95 m: entrada sin costo (no incluye tarjeta de juegos ni acceso
-            a atracciones).
-          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              Adulto: $449.00 · Niño (de 0.95 m a 1.50 m): $339.00 · Adulto Mayor (con
+              identificación): $339.00.
+            </li>
+            <li>
+              Niñas y niños menores de 0.95 m: entrada sin costo (no incluye tarjeta de juegos ni
+              acceso a atracciones).
+            </li>
+          </ul>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
             6.4 Restricciones generales y seguridad
           </h3>
-          <p>
-            La tarjeta de juego y los beneficios de cada paquete son personales e intransferibles;
-            queda prohibido el uso compartido de una sola tarjeta para tiempos de juego o entradas a
-            atracciones.
-          </p>
-          <p>
-            El acceso a las atracciones (especialmente Go Karts y Bumper Cars) está sujeto al
-            cumplimiento de las normas de seguridad, incluyendo estaturas mínimas y reglamentos de
-            conducta.
-          </p>
-          <p>
-            El ingreso a juegos y atracciones está sujeto a disponibilidad, condiciones climáticas,
-            mantenimiento y restricciones de seguridad.
-          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              La tarjeta de juego y los beneficios de cada paquete son personales e intransferibles;
+              queda prohibido el uso compartido de una sola tarjeta para tiempos de juego o entradas
+              a atracciones.
+            </li>
+            <li>
+              El acceso a las atracciones (especialmente Go Karts y Bumper Cars) está sujeto al
+              cumplimiento de las normas de seguridad, incluyendo estaturas mínimas y reglamentos de
+              conducta.
+            </li>
+            <li>
+              El ingreso a juegos y atracciones está sujeto a disponibilidad, condiciones climáticas,
+              mantenimiento y restricciones de seguridad.
+            </li>
+          </ul>
 
           <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">
             7. Acceso y Uso de las Instalaciones (Reglamento Interno)
@@ -248,50 +275,49 @@ export default function TerminosPage() {
             horarios en el Sitio o en redes sociales antes de su visita.
           </p>
           <p>Al ingresar al inmueble, usted y sus acompañantes aceptan el siguiente reglamento:</p>
-          <p>
-            Los menores de edad deberán permanecer acompañados y bajo la supervisión de un adulto
-            responsable en todo momento; los padres o tutores son responsables de la conducta y
-            seguridad de los menores a su cargo dentro del inmueble.
-          </p>
-          <p>
-            No se permite el ingreso de alimentos ni bebidas del exterior, con excepción del pastel
-            de cumpleaños en fiestas contratadas, alimentos para bebés o por prescripción médica.
-          </p>
-          <p>
-            Queda prohibido fumar o vapear dentro del inmueble, así como ingresar en estado de
-            ebriedad o bajo el influjo de sustancias. No se permite el acceso con mascotas, con
-            excepción de animales de asistencia.
-          </p>
-          <p>
-            El uso de videojuegos, juegos y atracciones se realiza cumpliendo el reglamento y las
-            restricciones de estatura, edad y condición física publicadas en cada juego, así como las
-            instrucciones del personal. El incumplimiento de estas reglas es responsabilidad
-            exclusiva del usuario.
-          </p>
-          <p>
-            Las atracciones pueden suspenderse temporalmente por mantenimiento, seguridad o
-            condiciones climáticas, sin que ello genere reembolso alguno; en su caso, el personal
-            ofrecerá alternativas para el uso del tiempo de juego o de los créditos.
-          </p>
-          <p>
-            Los daños ocasionados a las instalaciones, mobiliario, juegos o equipo por mal uso serán
-            cubiertos por quien los ocasione o por el adulto responsable a cargo.
-          </p>
-          <p>
-            Incredible Pizza no se hace responsable por la pérdida, robo o extravío de objetos
-            personales dentro del inmueble ni en el estacionamiento.
-          </p>
-          <p>
-            Las instalaciones cuentan con sistemas de videovigilancia para la seguridad de los
-            visitantes (consulte nuestro{" "}
-            <Link
-              href="/aviso-de-privacidad"
-              className="font-semibold text-brand-blue underline-offset-2 hover:underline"
-            >
-              Aviso de Privacidad
-            </Link>
-            ).
-          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              Los menores de edad deberán permanecer acompañados y bajo la supervisión de un adulto
+              responsable en todo momento; los padres o tutores son responsables de la conducta y
+              seguridad de los menores a su cargo dentro del inmueble.
+            </li>
+            <li>
+              No se permite el ingreso de alimentos ni bebidas del exterior, con excepción del pastel
+              de cumpleaños en fiestas contratadas, alimentos para bebés o por prescripción médica.
+            </li>
+            <li>
+              Queda prohibido fumar o vapear dentro del inmueble, así como ingresar en estado de
+              ebriedad o bajo el influjo de sustancias. No se permite el acceso con mascotas, con
+              excepción de animales de asistencia.
+            </li>
+            <li>
+              El uso de videojuegos, juegos y atracciones se realiza cumpliendo el reglamento y las
+              restricciones de estatura, edad y condición física publicadas en cada juego, así como
+              las instrucciones del personal. El incumplimiento de estas reglas es responsabilidad
+              exclusiva del usuario.
+            </li>
+            <li>
+              Las atracciones pueden suspenderse temporalmente por mantenimiento, seguridad o
+              condiciones climáticas, sin que ello genere reembolso alguno; en su caso, el personal
+              ofrecerá alternativas para el uso del tiempo Platino videojuegos o de los créditos.
+            </li>
+            <li>
+              Los daños ocasionados a las instalaciones, mobiliario, juegos o equipo por mal uso
+              serán cubiertos por quien los ocasione o por el adulto responsable a cargo.
+            </li>
+            <li>
+              Incredible Pizza no se hace responsable por la pérdida, robo o extravío de objetos
+              personales dentro del inmueble ni en el estacionamiento.
+            </li>
+            <li>
+              Las instalaciones cuentan con sistemas de videovigilancia para la seguridad de los
+              visitantes (consulte nuestro{" "}
+              <Link href="/aviso-de-privacidad" className={privacyLinkClass}>
+                Aviso de Privacidad
+              </Link>
+              ).
+            </li>
+          </ul>
           <p>
             Derecho de admisión: Incredible Pizza se reserva el derecho de negar el acceso o retirar
             de sus instalaciones a cualquier persona que ponga en riesgo la integridad de los
@@ -300,7 +326,7 @@ export default function TerminosPage() {
           </p>
 
           <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">
-            8. Promociones Vigentes (septiembre 2026)
+            8. Promociones Vigentes (octubre 2026)
           </h2>
           <p>
             Salvo indicación expresa en contrario: las promociones no son acumulables entre sí ni con
@@ -309,73 +335,94 @@ export default function TerminosPage() {
             sujetos a cambios sin previo aviso; y son exclusivas de Incredible Food and Fun,
             Monterrey, Nuevo León.
           </p>
+          <h3 className="font-sans text-base font-extrabold text-brand-ink">8.1 A Comer y Jugar</h3>
+          <p>
+            Válida de lunes a jueves, del 1 de octubre al 2 de noviembre de 2026 (incluidos los días
+            lunes a jueves del Festival del Terror). Incluye Bufet con Bebida + 1 hora Platino
+            videojuegos: niño (de 0.95 m a 1.50 m) $399.00 y adulto $499.00. Un combo por persona por
+            día. No aplica de viernes a domingo.
+          </p>
+          <h3 className="font-sans text-base font-extrabold text-brand-ink">8.2 Paquete Familiar</h3>
+          <p>
+            Válido de lunes a jueves. Incluye para 2 adultos y 2 niños (menores de 1.50 m) el Bufet
+            con Bebida y 2 horas Platino videojuegos por persona, por $1,999.00. Opciones: 3 horas
+            por persona $2,299.00 y 4 horas por persona $2,499.00. Niño de más de 1.50 m: $100.00 de
+            excedente.
+          </p>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
-            8.1 ¡Regreso a Clases!
+            8.3 Segunda Hora Platino Videojuegos
           </h3>
           <p>
-            Válida de lunes a jueves del mes de septiembre de 2026, excepto los días 14 al 17 de
-            septiembre. Bufet con bebida + 750 créditos por $399.00. Un combo por persona por día.
+            En la compra de cualquier paquete o combo que incluya 1 hora Platino videojuegos, la
+            segunda hora tiene un costo de $100.00. Es ÚNICA por persona y válida únicamente en el
+            primer acceso del día al Establecimiento. Las horas posteriores se adquieren a precio
+            regular o al precio de Horas Felices, cuando estén activas.
+          </p>
+          <h3 className="font-sans text-base font-extrabold text-brand-ink">8.4 Horas Felices</h3>
+          <p>
+            En los horarios anunciados por voceo dentro del Establecimiento (de 3:00 a 4:00 pm y de
+            6:00 a 7:00 pm), la recarga de 1 hora Platino videojuegos tiene un costo de $200.00.
+            Válida únicamente durante dichas ventanas de tiempo y en centros de recarga o taquilla;
+            fuera de ellas aplica el precio regular.
           </p>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
-            8.2 Bonus de Estudiante
+            8.5 Cumple de Rusty (17 y 18 de octubre)
           </h3>
           <p>
-            Válida de lunes a jueves del mes de septiembre de 2026, excepto los días 14 al 17.
-            Exclusiva para estudiantes de preparatoria y universidad: presentando credencial de
-            estudiante vigente (ciclo 2026-2027) en la compra de la promoción “Regreso a Clases”, se
-            obtienen 200 créditos adicionales de regalo. Un bonus por credencial por día. No aplica a
-            estudiantes de otros niveles educativos.
-          </p>
-          <h3 className="font-sans text-base font-extrabold text-brand-ink">8.3 Semana Mexicana</h3>
-          <p>
-            Válida del lunes 14 al domingo 20 de septiembre de 2026. En la compra de un Bufet con
-            Bebida a precio regular, el segundo Bufet con Bebida es gratis. Antojitos mexicanos en la
-            barra del bufet todos los días de 2:00 a 5:00 pm. Durante estas fechas no aplica la
-            promoción “Regreso a Clases”.
-          </p>
-          <h3 className="font-sans text-base font-extrabold text-brand-ink">8.4 Promo Jersey</h3>
-          <p>
-            Del viernes 11 al domingo 13 de septiembre de 2026 (jersey de Tigres o Rayados) y del
-            lunes 14 al domingo 20 de septiembre de 2026 (jersey de la Selección Mexicana):
-            presentándose con el jersey puesto y realizando la compra de un bufet, paquete o consumo
-            de acceso, se abonarán 100 créditos por persona a su tarjeta de juego. Un abono por
-            persona por día; los créditos se abonan a la tarjeta y no son canjeables por efectivo.
-            Requiere haber adquirido un consumo de acceso al establecimiento.
-          </p>
-          <h3 className="font-sans text-base font-extrabold text-brand-ink">8.5 Recarga y Gana</h3>
-          <p>
-            Válida todos los días en centros de recarga: al recargar $100 se abonan 50 créditos
-            adicionales; $200 abona 100; $300 abona 200; $500 abona 350. Bonos no canjeables por
-            efectivo ni transferibles.
+            Los días 17 y 18 de octubre de 2026, celebrando el cumpleaños de Rusty: presentando un
+            juguete en donación en buen estado y habiendo adquirido un consumo de acceso, se abona 1
+            hora Platino videojuegos gratis a la tarjeta del cliente. Un canje por persona por día.
           </p>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
-            8.6 ¿Hoy es tu cumpleaños?
+            8.6 Festival del Terror (26 de octubre al 2 de noviembre)
+          </h3>
+          <p>
+            Del 26 de octubre al 2 de noviembre de 2026: presentándose con disfraz y adquiriendo un
+            bufet, paquete o consumo de acceso, se abona 1 hora Platino videojuegos gratis a la
+            tarjeta del cliente. Un canje por persona por día. Durante el festival, el bufet incluye
+            barra temática de Halloween de 2:00 a 6:00 pm. Concurso de disfraces el sábado 31 de
+            octubre; consulte las bases en sucursal.
+          </p>
+          <h3 className="font-sans text-base font-extrabold text-brand-ink">
+            8.7 ¿Hoy es tu cumpleaños?
           </h3>
           <p>
             Válida en la semana del cumpleaños: en la compra de 2 paquetes Rusty’s a precio regular
-            al momento de ingresar, el festejado recibe gratis Bufet con bebida + 1 hora de juego
-            platino, 3 atracciones y 400 créditos. Se requiere identificación o acta que acredite la
-            fecha. Tiempo platino no incluye Cranes, Tokens ni Golden Games. Vigencia: 31 de
-            diciembre de 2026.
+            al momento de ingresar, el festejado recibe gratis Bufet con bebida + 1 hora Platino
+            videojuegos, 3 atracciones y 400 créditos. Se requiere identificación o acta que acredite
+            la fecha. El tiempo Platino videojuegos no incluye Cranes, Tokens ni Golden Games.
+            Vigencia: 31 de diciembre de 2026.
           </p>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
-            8.7 Planes de tienda en línea
+            8.8 Planes de tienda en línea
           </h3>
-          <p>
-            Plan Pareja ($1,400.00): Bufet y bebida ilimitada para 2 personas, 2 horas de juego
-            regular y 4 atracciones por persona + 200 créditos cada uno.
-          </p>
-          <p>
-            Plan Familiar ($2,499.00): Bufet y bebida ilimitada para 4 personas (2 niños y 2
-            adultos), 2 horas de juego regular y 4 atracciones por niño + 200 créditos cada uno.
-          </p>
-          <p>
-            Plan para 6 ($4,310.00): Bufet y bebida ilimitada para 6 personas, 2 horas de juego
-            regular y 4 atracciones por persona + 200 créditos cada uno.
-          </p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              Plan Pareja ($1,400.00): Bufet y bebida ilimitada para 2 personas, 2 horas Platino
+              videojuegos y 4 atracciones por persona + 200 créditos cada uno.
+            </li>
+            <li>
+              Plan Familiar ($2,499.00): Bufet y bebida ilimitada para 4 personas (2 niños y 2
+              adultos), 2 horas Platino videojuegos y 4 atracciones por niño + 200 créditos cada uno.
+            </li>
+            <li>
+              Plan para 6 ($4,310.00): Bufet y bebida ilimitada para 6 personas, 2 horas Platino
+              videojuegos y 4 atracciones por persona + 200 créditos cada uno.
+            </li>
+          </ul>
           <p>
             Los planes de tienda en línea no incluyen el costo del plástico, no son válidos con otras
             promociones y son exclusivos de la sucursal Monterrey, Nuevo León.
+          </p>
+          <h3 className="font-sans text-base font-extrabold text-brand-ink">
+            8.9 Fiestas y Eventos
+          </h3>
+          <p>
+            Los paquetes de fiesta (Riley, Rosie, Tiger y Fiesta Express), la Fiesta Halloween Riley,
+            la promoción de 20% de descuento en invitados infantiles y los paquetes de eventos se
+            rigen por los Términos y Condiciones de Fiestas y Eventos publicados en este Sitio, que
+            forman parte integrante de los presentes Términos y Condiciones. En caso de discrepancia
+            respecto de fiestas y eventos, prevalecerá lo señalado en dicho documento.
           </p>
 
           <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">
@@ -435,10 +482,7 @@ export default function TerminosPage() {
           <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">13. Privacidad</h2>
           <p>
             El tratamiento de sus datos personales se rige por nuestro{" "}
-            <Link
-              href="/aviso-de-privacidad"
-              className="font-semibold text-brand-blue underline-offset-2 hover:underline"
-            >
+            <Link href="/aviso-de-privacidad" className={privacyLinkClass}>
               Aviso de Privacidad
             </Link>
             , disponible en este mismo Sitio, elaborado conforme a la Ley Federal de Protección de
@@ -450,16 +494,16 @@ export default function TerminosPage() {
             14. Exclusión de Garantías y Responsabilidad
           </h2>
           <p>
-            Salvo lo expresamente señalado respecto de nuestros productos, los contenidos del Sitio
-            se ofrecen “tal cual”, sin garantía expresa o implícita. Incredible Pizza no garantiza
-            que las funciones del Sitio operarán de forma ininterrumpida o libre de errores, ni que
-            el Sitio o el servidor estén libres de virus u otros componentes dañinos.
+            Salvo lo expresamente señalado respecto de nuestros productos, los contenidos del Sitio se
+            ofrecen “tal cual”, sin garantía expresa o implícita. Incredible Pizza no garantiza que
+            las funciones del Sitio operarán de forma ininterrumpida o libre de errores, ni que el
+            Sitio o el servidor estén libres de virus u otros componentes dañinos.
           </p>
           <p>
-            Responsabilidad de atracciones: Incredible Pizza no será responsable de la
-            disponibilidad de las atracciones. El ingreso a las atracciones es responsabilidad del
-            usuario, quien deberá obedecer en todo momento las instrucciones del personal para su
-            funcionamiento y seguridad.
+            Responsabilidad de atracciones: Incredible Pizza no será responsable de la disponibilidad
+            de las atracciones. El ingreso a las atracciones es responsabilidad del usuario, quien
+            deberá obedecer en todo momento las instrucciones del personal para su funcionamiento y
+            seguridad.
           </p>
 
           <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">15. Jurisdicción</h2>
@@ -470,7 +514,9 @@ export default function TerminosPage() {
             corresponderles.
           </p>
 
-          <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">16. Modificaciones</h2>
+          <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">
+            16. Modificaciones
+          </h2>
           <p>
             Incredible Pizza se reserva el derecho de cambiar, modificar o remover total o
             parcialmente los presentes Términos y Condiciones en cualquier momento y sin previo
