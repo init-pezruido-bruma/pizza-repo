@@ -1,10 +1,11 @@
 import { Resend } from "resend";
 import { prisma } from "@/lib/db";
+import { siteConfig } from "@/lib/site";
 import type { Quote } from "@prisma/client";
 
 export type MailStatus =
   | { status: "skipped"; reason: string }
-  | { status: "sent"; id?: string }
+  | { status: "sent"; id?: string; warning?: string }
   | { status: "error"; message: string };
 
 function parseRecipients(raw: string): string[] {
@@ -30,11 +31,7 @@ export async function getMailSettings() {
       id: "default",
       fromEmail: process.env.MAIL_FROM?.trim() || "noreply@incrediblepizza.mx",
       fromName: "Incredible Pizza",
-      recipients: JSON.stringify([
-        "f.castillo@hungrypartners.com",
-        "natalia@hungrypartners.com",
-        "myafdelaf@incrediblepizza.mx",
-      ]),
+      recipients: JSON.stringify([siteConfig.email]),
       enabled: true,
     },
   });
@@ -42,6 +39,22 @@ export async function getMailSettings() {
 
 export function isResendConfigured() {
   return Boolean(process.env.RESEND_API_KEY?.trim());
+}
+
+function quoteLines(quote: Quote) {
+  return [
+    `Nombre: ${quote.nombre}`,
+    `Teléfono: ${quote.telefono}`,
+    `Correo: ${quote.email || "(no proporcionado)"}`,
+    `Tipo: ${quote.tipo || "—"}`,
+    `Fecha: ${quote.fecha || "—"}`,
+    `Personas: ${quote.personas ?? "—"}`,
+    `Comentarios: ${quote.comentarios || "—"}`,
+  ];
+}
+
+function adminQuotesUrl() {
+  return `${siteConfig.url}/backend/admin/cotizaciones`;
 }
 
 export async function sendQuoteNotification(quote: Quote): Promise<MailStatus> {
@@ -56,38 +69,65 @@ export async function sendQuoteNotification(quote: Quote): Promise<MailStatus> {
     return { status: "skipped", reason: "RESEND_API_KEY not set" };
   }
 
-  const recipients = parseRecipients(settings.recipients);
-  if (recipients.length === 0) {
-    return { status: "skipped", reason: "No recipients configured" };
-  }
-
+  const recipients = Array.from(
+    new Set([...parseRecipients(settings.recipients), siteConfig.email]),
+  );
   const resend = new Resend(apiKey);
-  const lines = [
-    `Nombre: ${quote.nombre}`,
-    `Teléfono: ${quote.telefono}`,
-    `Correo: ${quote.email || "(no proporcionado)"}`,
-    `Tipo: ${quote.tipo || "—"}`,
-    `Fecha: ${quote.fecha || "—"}`,
-    `Personas: ${quote.personas ?? "—"}`,
-    `Comentarios: ${quote.comentarios || "—"}`,
-    "",
-    `ID: ${quote.id}`,
-    `Recibido: ${quote.createdAt.toISOString()}`,
-  ];
+  const from = `${settings.fromName} <${settings.fromEmail}>`;
+  const listUrl = adminQuotesUrl();
+  const detailUrl = `${listUrl}/${quote.id}`;
 
   try {
-    const result = await resend.emails.send({
-      from: `${settings.fromName} <${settings.fromEmail}>`,
+    const staff = await resend.emails.send({
+      from,
       to: recipients,
-      subject: `Cotización Incredible Pizza — ${quote.nombre}`,
-      text: lines.join("\n"),
+      replyTo: quote.email || undefined,
+      subject: `Nueva cotización — ${quote.nombre}`,
+      text: [
+        "Llegó una nueva cotización.",
+        "",
+        ...quoteLines(quote),
+        "",
+        `Ver esta cotización: ${detailUrl}`,
+        `Listado: ${listUrl}`,
+      ].join("\n"),
     });
 
-    if (result.error) {
-      return { status: "error", message: result.error.message };
+    if (staff.error) {
+      return { status: "error", message: staff.error.message };
     }
 
-    return { status: "sent", id: result.data?.id };
+    if (quote.email) {
+      const guest = await resend.emails.send({
+        from,
+        to: quote.email,
+        replyTo: siteConfig.email,
+        subject: "Recibimos tu solicitud de cotización — Incredible Pizza",
+        text: [
+          `Hola ${quote.nombre},`,
+          "",
+          "Recibimos tu solicitud de cotización. El equipo de Incredible Pizza la revisará y te contactará.",
+          "",
+          "Estos son los datos que enviaste:",
+          ...quoteLines(quote),
+          "",
+          "Si necesitas corregir algo, responde a este correo.",
+          "",
+          "Incredible Pizza Monterrey",
+          siteConfig.phone,
+        ].join("\n"),
+      });
+
+      if (guest.error) {
+        return {
+          status: "sent",
+          id: staff.data?.id,
+          warning: `Aviso interno enviado. No se pudo confirmar al cliente: ${guest.error.message}`,
+        };
+      }
+    }
+
+    return { status: "sent", id: staff.data?.id };
   } catch (err) {
     return {
       status: "error",

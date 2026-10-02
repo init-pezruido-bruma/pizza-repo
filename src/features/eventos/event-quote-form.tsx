@@ -64,8 +64,8 @@ export function EventQuoteForm() {
           <input required name="nombre" className={fieldClass} autoComplete="name" />
         </label>
         <label className="grid gap-1 text-xs font-bold uppercase tracking-wide text-brand-ink/70">
-          Correo
-          <input type="email" name="email" className={fieldClass} autoComplete="email" />
+          Correo *
+          <input required type="email" name="email" className={fieldClass} autoComplete="email" />
         </label>
         <label className="grid gap-1 text-xs font-bold uppercase tracking-wide text-brand-ink/70">
           Teléfono *

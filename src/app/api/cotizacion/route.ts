@@ -6,7 +6,7 @@ import { sendQuoteNotification } from "@/lib/mail/send";
 const quoteSchema = z.object({
   nombre: z.string().trim().min(1).max(120),
   telefono: z.string().trim().min(7).max(40),
-  email: z.string().trim().email().optional().or(z.literal("")),
+  email: z.string().trim().email("Escribe un correo válido."),
   tipo: z.string().trim().max(80).optional(),
   fecha: z.string().trim().max(40).optional(),
   personas: z.coerce.number().int().positive().max(5000).optional().nullable(),
@@ -73,7 +73,7 @@ export async function POST(request: Request) {
   if (mail.status === "sent") {
     await prisma.quote.update({
       where: { id: quote.id },
-      data: { emailSentAt: new Date(), emailError: null },
+      data: { emailSentAt: new Date(), emailError: mail.warning ?? null },
     });
   } else if (mail.status === "error") {
     await prisma.quote.update({

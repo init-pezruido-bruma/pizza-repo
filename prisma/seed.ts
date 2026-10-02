@@ -3,11 +3,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const DEFAULT_RECIPIENTS = [
-  "f.castillo@hungrypartners.com",
-  "natalia@hungrypartners.com",
-  "myafdelaf@incrediblepizza.mx",
-];
+const DEFAULT_RECIPIENTS = ["contacto@incrediblepizza.mx"];
 
 async function main() {
   const email = process.env.ADMIN_EMAIL?.trim().toLowerCase();
