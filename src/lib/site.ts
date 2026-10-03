@@ -13,8 +13,15 @@ export const siteConfig = {
   locale: "es_MX",
   phone: "(81) 1100-1214",
   phoneTel: "+528111001214",
-  whatsapp: "528121971233",
-  whatsappDisplay: "812 1971 233",
+  /**
+   * Línea comprometida (oct 2026). Para reactivar:
+   * whatsappEnabled: true
+   * whatsapp: "528121971233"
+   * whatsappDisplay: "812 1971 233"
+   */
+  whatsappEnabled: false,
+  whatsapp: "",
+  whatsappDisplay: "",
   email: "contacto@incrediblepizza.mx",
   address: {
     street: "Av. Lázaro Cárdenas 999, Brisas La Punta",

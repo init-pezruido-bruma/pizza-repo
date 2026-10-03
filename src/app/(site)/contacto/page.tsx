@@ -7,7 +7,9 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contacto",
-  description: `Contacta a ${siteConfig.name} en Monterrey. Teléfono, WhatsApp y ubicación.`,
+  description: siteConfig.whatsappEnabled
+    ? `Contacta a ${siteConfig.name} en Monterrey. Teléfono, WhatsApp y ubicación.`
+    : `Contacta a ${siteConfig.name} en Monterrey. Teléfono, correo y ubicación.`,
   alternates: { canonical: "/contacto" },
 };
 
@@ -20,14 +22,18 @@ const channels = [
     nowrap: false,
     icon: "phone" as const,
   },
-  {
-    label: "WhatsApp",
-    value: siteConfig.whatsappDisplay,
-    href: `https://wa.me/${siteConfig.whatsapp}`,
-    external: true,
-    nowrap: false,
-    icon: "whatsapp" as const,
-  },
+  ...(siteConfig.whatsappEnabled
+    ? [
+        {
+          label: "WhatsApp",
+          value: siteConfig.whatsappDisplay,
+          href: `https://wa.me/${siteConfig.whatsapp}`,
+          external: true,
+          nowrap: false,
+          icon: "whatsapp" as const,
+        },
+      ]
+    : []),
   {
     label: "Correo",
     value: siteConfig.email,
@@ -52,8 +58,8 @@ export default function ContactoPage() {
               Contacto
             </h1>
             <p className="hero-copy-in hero-copy-in-delay-1 mx-auto mt-4 max-w-xl text-center text-base leading-relaxed text-white/95 sm:text-lg">
-              Fiestas, eventos, menú to-go o cualquier duda — te respondemos por WhatsApp o
-              teléfono.
+              Fiestas, eventos, menú to-go o cualquier duda — te respondemos por{" "}
+              {siteConfig.whatsappEnabled ? "WhatsApp o teléfono" : "teléfono o correo"}.
             </p>
           </Reveal>
 
@@ -63,13 +69,7 @@ export default function ContactoPage() {
               size="lg"
               className="min-h-12 rounded-full border-2 border-black bg-brand-yellow px-8 text-sm font-extrabold uppercase tracking-wide text-black transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:bg-brand-yellow sm:min-h-14 sm:px-10 sm:text-base"
             >
-              <a
-                href={`https://wa.me/${siteConfig.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Escríbenos
-              </a>
+              <a href={`tel:${siteConfig.phoneTel}`}>Llámanos</a>
             </Button>
           </Reveal>
         </div>
@@ -77,7 +77,9 @@ export default function ContactoPage() {
 
       <section className="bg-gradient-to-b from-brand-blue via-[#7a4a78] to-brand-red py-12 text-white sm:py-14">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-          <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
+          <div
+            className={`grid gap-4 sm:gap-5 ${siteConfig.whatsappEnabled ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}
+          >
             {channels.map((channel, i) => (
               <Reveal key={channel.label} delay={60 + i * 40} className="relative">
                 <a

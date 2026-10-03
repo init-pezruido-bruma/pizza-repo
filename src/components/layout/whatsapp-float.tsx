@@ -2,6 +2,8 @@ import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 
 export function WhatsAppFloat() {
+  if (!siteConfig.whatsappEnabled) return null;
+
   const href = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
     "Hola Incredible Pizza, me gustaría cotizar / pedir información.",
   )}`;
