@@ -57,12 +57,11 @@ export default function FacturacionPage() {
                 <li>
                   Escríbenos a{" "}
                   <a
-                    href={`mailto:facturación@incrediblepizza.mx?subject=${encodeURIComponent("Solicitud de factura")}`}
+                    href={`mailto:facturacion@incrediblepizza.mx?subject=${encodeURIComponent("Solicitud de factura")}`}
                     className="font-semibold text-brand-blue underline-offset-2 hover:underline"
                   >
-                    facturación@incrediblepizza.mx
+                    facturacion@incrediblepizza.mx
                   </a>
-                  .
                 </li>
                 <li>Adjunta o escribe el folio del ticket y tus datos fiscales.</li>
                 <li>Te enviaremos el XML y el PDF al correo indicado.</li>
