@@ -31,6 +31,9 @@ export default function TerminosPage() {
           Uso del sitio web, ventas en línea y en sucursal, y uso de las instalaciones ·
           incrediblepizza.mx · Incredible Pizza / Incredible Food and Fun · Monterrey, Nuevo León
         </p>
+        <p className="mt-2 text-sm font-semibold text-brand-ink/70">
+          Última actualización: 13 de octubre de 2026
+        </p>
 
         <div className="mt-8 space-y-4 text-base leading-relaxed text-brand-ink/80">
           <h2 className="pt-4 font-sans text-lg font-extrabold text-brand-ink">
@@ -160,6 +163,20 @@ export default function TerminosPage() {
             expresamente lo contrario.
           </p>
           <p>
+            <strong className="font-extrabold text-brand-ink">
+              USO PERSONAL DE LA TARJETA E IDENTIFICACIÓN DEL PORTADOR:
+            </strong>{" "}
+            toda tarjeta de juego es personal e intransferible, cualquiera que sea la forma de acceso
+            (taquilla, compra en línea, fiestas, eventos, convenios, certificados o cortesías). Al
+            momento del ingreso, el cajero incluirá en la pulsera de ingreso de cada visitante los
+            últimos 3 (tres) dígitos de la tarjeta de juego que le corresponde, a fin de identificar a
+            su portador. El personal podrá verificar en cualquier momento que la pulsera y la tarjeta
+            coincidan. El uso de una misma tarjeta por dos o más personas —en tiempo Platino
+            videojuegos, créditos o entradas a atracciones— constituye un uso indebido y podrá dar
+            lugar a la suspensión del servicio y a la retención de la tarjeta, sin reembolso, conforme
+            al Reglamento Interno (sección 7).
+          </p>
+          <p>
             Programa “Trae tu Tarjeta”: el cliente que se presente con su tarjeta Incredible Pizza de
             una visita anterior no pagará el costo de tarjeta nueva y recibirá un abono de cortesía
             de 50 créditos, limitado a un abono por tarjeta por día. Este beneficio puede modificarse
@@ -251,8 +268,9 @@ export default function TerminosPage() {
           <ul className="list-disc space-y-2 pl-5">
             <li>
               La tarjeta de juego y los beneficios de cada paquete son personales e intransferibles;
-              queda prohibido el uso compartido de una sola tarjeta para tiempos de juego o entradas
-              a atracciones.
+              queda prohibido el uso compartido de una sola tarjeta para tiempo Platino videojuegos,
+              créditos o entradas a atracciones. La identificación del portador se realiza mediante
+              los últimos 3 dígitos de la tarjeta, incluidos en la pulsera de ingreso (sección 5).
             </li>
             <li>
               El acceso a las atracciones (especialmente Go Karts y Bumper Cars) está sujeto al
@@ -295,6 +313,12 @@ export default function TerminosPage() {
               restricciones de estatura, edad y condición física publicadas en cada juego, así como
               las instrucciones del personal. El incumplimiento de estas reglas es responsabilidad
               exclusiva del usuario.
+            </li>
+            <li>
+              Porte su pulsera de ingreso durante toda su estancia. La pulsera incluye los últimos 3
+              dígitos de su tarjeta de juego y el personal podrá solicitar en cualquier momento la
+              verificación de que la tarjeta utilizada corresponde a su portador; la tarjeta es
+              personal e intransferible en todo tipo de acceso.
             </li>
             <li>
               Las atracciones pueden suspenderse temporalmente por mantenimiento, seguridad o
@@ -344,10 +368,10 @@ export default function TerminosPage() {
           </p>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">8.2 Paquete Familiar</h3>
           <p>
-            Válido de lunes a jueves. Incluye para 2 adultos y 2 niños (menores de 1.50 m) el Bufet
-            con Bebida y 2 horas Platino videojuegos por persona, por $1,999.00. Opciones: 3 horas
-            por persona $2,299.00 y 4 horas por persona $2,499.00. Niño de más de 1.50 m: $100.00 de
-            excedente.
+            Válido de lunes a jueves. Incluye Bufet con Bebida para 2 adultos y 2 niños (menores de
+            1.50 m), más 2 horas Platino videojuegos por persona, por $1,999.00. Las horas
+            adicionales se adquieren por separado a precio regular o al precio de Horas Felices,
+            cuando estén activas. Niño de más de 1.50 m: $100.00 de excedente.
           </p>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
             8.3 Segunda Hora Platino Videojuegos
@@ -415,7 +439,22 @@ export default function TerminosPage() {
             promociones y son exclusivos de la sucursal Monterrey, Nuevo León.
           </p>
           <h3 className="font-sans text-base font-extrabold text-brand-ink">
-            8.9 Fiestas y Eventos
+            8.9 Increíble Buffet 2x1 — Comunidad de Incredible Pizza
+          </h3>
+          <p>
+            Válida de lunes a jueves, del 13 al 29 de octubre de 2026, hasta las 7:00 pm y únicamente
+            al momento de ingresar. En la compra de un Bufet con Bebida, el segundo Bufet con Bebida
+            es gratis; para aplicar la promoción se tomará como referencia el precio de mayor valor.
+            Exclusiva para los miembros de la comunidad oficial de Incredible Pizza: al menos uno de
+            los dos clientes deberá acreditar en el momento, desde su propio dispositivo, que forma
+            parte de nuestro grupo o canal de difusión oficial y que sigue nuestras redes sociales
+            oficiales; no se aceptan capturas de pantalla ni imágenes para validar la promoción.
+            Limitada a un (1) canje por miembro de la comunidad por día. No incluye tiempo Platino
+            videojuegos, créditos ni tarjeta de juego. No es acumulable con otras promociones o
+            descuentos, incluida la promoción A Comer y Jugar.
+          </p>
+          <h3 className="font-sans text-base font-extrabold text-brand-ink">
+            8.10 Fiestas y Eventos
           </h3>
           <p>
             Los paquetes de fiesta (Riley, Rosie, Tiger y Fiesta Express), la Fiesta Halloween Riley,
@@ -524,6 +563,9 @@ export default function TerminosPage() {
             para que surtan efectos. Es responsabilidad del usuario consultarlos periódicamente; los
             Términos y Condiciones publicados en las plataformas de Incredible Pizza serán los que
             subsistan.
+          </p>
+          <p className="pt-4 text-sm font-semibold text-brand-ink/70">
+            Última actualización: 13 de octubre de 2026.
           </p>
         </div>
       </article>
