@@ -15,6 +15,7 @@ export default async function UsuariosAdminPage() {
         <p className="mt-1 text-sm text-brand-ink/70">Administradores con acceso al panel.</p>
       </div>
 
+      <div data-tour="user-list">
       <ul className="grid gap-3 md:hidden">
         {users.map((user) => (
           <li key={user.id} className="rounded-2xl border border-black/10 bg-white p-4">
@@ -78,7 +79,9 @@ export default async function UsuariosAdminPage() {
           </tbody>
         </table>
       </div>
+      </div>
 
+      <div data-tour="user-create">
       <ActionForm
         action={createAdminUserAction}
         success="Usuario creado."
@@ -115,6 +118,7 @@ export default async function UsuariosAdminPage() {
           Crear usuario
         </Button>
       </ActionForm>
+      </div>
     </div>
   );
 }

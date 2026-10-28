@@ -23,6 +23,7 @@ export default async function CorreoAdminPage() {
       </div>
 
       <div
+        data-tour="mail-status"
         className={`rounded-2xl border px-4 py-3 text-sm font-semibold ${
           connected
             ? "border-emerald-200 bg-emerald-50 text-emerald-800"
@@ -34,6 +35,7 @@ export default async function CorreoAdminPage() {
           : "Sin RESEND_API_KEY: las cotizaciones se guardan, pero no se envían correos."}
       </div>
 
+      <div data-tour="mail-form">
       <ActionForm
         action={updateMailSettingsAction}
         success="Correo actualizado."
@@ -81,6 +83,7 @@ export default async function CorreoAdminPage() {
           Guardar
         </Button>
       </ActionForm>
+      </div>
     </div>
   );
 }

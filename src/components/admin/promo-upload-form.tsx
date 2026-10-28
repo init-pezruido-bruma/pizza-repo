@@ -146,7 +146,7 @@ export function PromoUploadForm() {
   const slotsLeft = MAX_QUEUE - queue.length;
 
   return (
-    <div className="space-y-5">
+    <div data-tour="promo-upload" className="space-y-5">
       <div className="rounded-[1.75rem] border-2 border-brand-ink/10 bg-white p-5 shadow-[0_10px_28px_rgba(26,43,86,0.08)] sm:p-6">
         <div>
           <h2 className="font-display text-xl font-black text-brand-blue">Subir promociones</h2>

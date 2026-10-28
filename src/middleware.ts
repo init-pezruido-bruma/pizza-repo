@@ -11,7 +11,8 @@ export default auth((req) => {
 
   if (!req.auth?.user) {
     const login = new URL("/backend/login", req.nextUrl.origin);
-    login.searchParams.set("redirect", req.nextUrl.pathname);
+    const guia = req.nextUrl.searchParams.get("guia") === "1" ? "?guia=1" : "";
+    login.searchParams.set("redirect", `${req.nextUrl.pathname}${guia}`);
     return NextResponse.redirect(login);
   }
 

@@ -9,7 +9,11 @@ import { Button } from "@/components/ui/button";
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
-  const redirect = searchParams.get("redirect") || "/backend/admin";
+  const requested = searchParams.get("redirect") || "/backend/admin";
+  const redirect =
+    requested.startsWith("/backend") && !requested.startsWith("//")
+      ? requested
+      : "/backend/admin";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

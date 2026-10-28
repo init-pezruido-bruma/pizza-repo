@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { CircleHelp, Menu, X } from "lucide-react";
 import { logoutAction } from "@/lib/admin/actions";
+import { useAdminGuide } from "@/components/admin/admin-guide";
 import { cn } from "@/lib/utils";
 
 const nav = [
@@ -22,7 +23,13 @@ function isActive(pathname: string, href: string) {
 
 export function AdminNav({ email }: { email: string | null }) {
   const pathname = usePathname();
+  const { start } = useAdminGuide();
   const [open, setOpen] = useState(false);
+
+  function openGuide() {
+    setOpen(false);
+    start();
+  }
 
   useEffect(() => {
     setOpen(false);
@@ -42,7 +49,10 @@ export function AdminNav({ email }: { email: string | null }) {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-black/10 bg-white/95 backdrop-blur-md">
+    <header
+      data-tour="admin-header"
+      className="sticky top-0 z-40 border-b border-black/10 bg-white/95 backdrop-blur-md"
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-8">
         <div className="min-w-0">
           <p className="text-[0.65rem] font-extrabold uppercase tracking-[0.16em] text-brand-red">
@@ -52,6 +62,18 @@ export function AdminNav({ email }: { email: string | null }) {
             Incredible Pizza
           </p>
         </div>
+
+        <div className="flex items-center gap-2">
+          <button
+            id="admin-guide-trigger"
+            type="button"
+            onClick={openGuide}
+            aria-label="Abrir la guía del panel"
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-full bg-brand-yellow px-3 text-xs font-extrabold uppercase tracking-wide text-brand-ink hover:bg-brand-yellow-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue"
+          >
+            <CircleHelp className="size-4" aria-hidden />
+            <span className="lg:sr-only xl:not-sr-only">Guía</span>
+          </button>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Admin">
           {nav.map((item) => (
@@ -83,21 +105,24 @@ export function AdminNav({ email }: { email: string | null }) {
             </button>
           </form>
         </nav>
-
-        <button
-          type="button"
-          className="inline-flex size-11 items-center justify-center rounded-full border border-black/15 lg:hidden"
-          aria-expanded={open}
-          aria-controls="admin-mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
-          <span className="sr-only">{open ? "Cerrar menú" : "Abrir menú"}</span>
-        </button>
+          <button
+            type="button"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-black/15 lg:hidden"
+            aria-expanded={open}
+            aria-controls="admin-mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
+            <span className="sr-only">{open ? "Cerrar menú" : "Abrir menú"}</span>
+          </button>
+        </div>
       </div>
 
       {email ? (
-        <div className="truncate border-t border-black/5 bg-[#f8f9fc] px-4 py-2 text-xs font-semibold text-brand-ink/60 sm:px-8">
+        <div
+          data-tour="admin-session"
+          className="truncate border-t border-black/5 bg-[#f8f9fc] px-4 py-2 text-xs font-semibold text-brand-ink/60 sm:px-8"
+        >
           Sesión: {email}
         </div>
       ) : null}

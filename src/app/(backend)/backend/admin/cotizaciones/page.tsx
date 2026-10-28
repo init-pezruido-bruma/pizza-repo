@@ -9,7 +9,7 @@ export default async function CotizacionesPage() {
 
   return (
     <div className="space-y-6">
-      <div>
+      <div data-tour="quote-intro">
         <h1 className="font-display text-[clamp(1.85rem,6vw,2.75rem)] font-black">Cotizaciones</h1>
         <p className="mt-1 text-sm text-brand-ink/70">Solicitudes del formulario de eventos.</p>
       </div>
@@ -19,12 +19,13 @@ export default async function CotizacionesPage() {
           Aún no hay cotizaciones.
         </p>
       ) : (
-        <>
+        <div data-tour="quote-table">
           <ul className="grid gap-3 md:hidden">
             {quotes.map((q) => (
               <li key={q.id}>
                 <Link
                   href={`/backend/admin/cotizaciones/${q.id}`}
+                  data-tour-quote=""
                   className="block min-h-14 rounded-2xl border border-black/10 bg-white p-4 shadow-sm"
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -88,6 +89,7 @@ export default async function CotizacionesPage() {
                     <td className="px-4 py-3 text-right">
                       <Link
                         href={`/backend/admin/cotizaciones/${q.id}`}
+                        data-tour-quote=""
                         className="inline-flex min-h-11 items-center font-extrabold uppercase tracking-wide text-brand-blue hover:underline"
                       >
                         Ver
@@ -98,7 +100,7 @@ export default async function CotizacionesPage() {
               </tbody>
             </table>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

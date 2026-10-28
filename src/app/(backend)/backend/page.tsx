@@ -35,6 +35,12 @@ export default function BackendHubPage() {
           >
             Ir al admin
           </Link>
+          <Link
+            href="/backend/admin?guia=1"
+            className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-white/40 px-6 text-sm font-extrabold uppercase tracking-wide text-brand-yellow transition hover:border-brand-yellow"
+          >
+            Ver la guía
+          </Link>
         </div>
       </div>
     </div>

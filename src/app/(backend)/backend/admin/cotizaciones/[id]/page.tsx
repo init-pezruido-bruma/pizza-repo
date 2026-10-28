@@ -2,14 +2,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 
-type Props = { params: Promise<{ id: string }> };
+type Props = {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ tour?: string | string[] }>;
+};
 
-export default async function CotizacionDetailPage({ params }: Props) {
+export default async function CotizacionDetailPage({ params, searchParams }: Props) {
   const { id } = await params;
+  const query = await searchParams;
+  const touring = query.tour === "1";
   let quote = await prisma.quote.findUnique({ where: { id } });
   if (!quote) notFound();
 
-  if (quote.status === "NEW") {
+  if (quote.status === "NEW" && !touring) {
     quote = await prisma.quote.update({
       where: { id: quote.id },
       data: { status: "READ" },
@@ -41,7 +46,7 @@ export default async function CotizacionDetailPage({ params }: Props) {
         </Link>
       </div>
 
-      <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+      <div data-tour="quote-detail" className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
         <dl className="grid gap-4 sm:grid-cols-2">
           {rows.map(([label, value]) => (
             <div key={label} className={label === "Comentarios" ? "sm:col-span-2" : undefined}>

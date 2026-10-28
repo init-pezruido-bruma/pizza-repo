@@ -19,7 +19,7 @@ export default async function AdminPromocionesPage() {
 
   return (
     <div className="space-y-10">
-      <div>
+      <div data-tour="promo-intro">
         <h1 className="font-display text-[clamp(1.85rem,6vw,2.75rem)] font-black">Promociones</h1>
         <p className="mt-1 text-sm text-brand-ink/70">
           Sube artes, publícalas en el sitio y conserva historial al archivarlas.
@@ -28,7 +28,7 @@ export default async function AdminPromocionesPage() {
 
       <PromoUploadForm />
 
-      <PromoSection title="Publicadas" items={published} mode="published" />
+      <PromoSection title="Publicadas" items={published} mode="published" tour="promo-published" />
       <PromoSection title="Borradores" items={drafts} mode="draft" />
       <PromoSection title="Historial (archivadas)" items={archived} mode="archived" />
     </div>
@@ -39,6 +39,7 @@ function PromoSection({
   title,
   items,
   mode,
+  tour,
 }: {
   title: string;
   items: {
@@ -51,9 +52,10 @@ function PromoSection({
     createdAt: Date;
   }[];
   mode: "published" | "draft" | "archived";
+  tour?: string;
 }) {
   return (
-    <section className="space-y-4">
+    <section data-tour={tour} className="space-y-4">
       <h2 className="font-display text-2xl font-black text-brand-ink">
         {title}{" "}
         <span className="text-base font-semibold text-brand-ink/45">({items.length})</span>

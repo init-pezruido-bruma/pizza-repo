@@ -37,7 +37,7 @@ export default async function AdminHomePage() {
 
   return (
     <div className="space-y-6">
-      <div>
+      <div data-tour="admin-intro">
         <h1 className="font-display text-[clamp(1.85rem,6vw,2.75rem)] font-black text-brand-ink">
           Panel
         </h1>
@@ -45,11 +45,12 @@ export default async function AdminHomePage() {
           Gestiona cotizaciones, promociones, correo y administradores.
         </p>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div data-tour="admin-cards" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => (
           <Link
             key={card.href}
             href={card.href}
+            data-tour={card.href.endsWith("/cotizaciones") ? "card-cotizaciones" : undefined}
             className="flex min-h-24 flex-col rounded-2xl border border-black/10 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
           >
             <h2 className="font-display text-xl font-black text-brand-blue">{card.title}</h2>
